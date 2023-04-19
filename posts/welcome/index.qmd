@@ -1,0 +1,11 @@
+---
+title: "Welcome"
+author: "Candace Savonen"
+date: "2023-04-16"
+categories: [news]
+---
+
+This is my blog where I post all my cansavvy thoughts. There is no theme. It's just whatever I feel like writing about. 
+
+Thanks. 
+

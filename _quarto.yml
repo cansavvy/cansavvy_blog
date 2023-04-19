@@ -1,0 +1,17 @@
+project:
+  type: website
+
+website:
+  title: "cansavvy"
+  navbar:
+    right:
+      - text: cansavvy.com
+        href: https://www.cansavvy.com/
+      - icon: github
+        href: https://github.com/cansavvy
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+
+editor: visual

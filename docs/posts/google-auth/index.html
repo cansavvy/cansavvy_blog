@@ -574,8 +574,8 @@ install.packages("jsonlite") </code></pre>
 <span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">invisible</span>(token))</span>
 <span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now we should be able to test this!</p>
-<pre><code>devtools::load_all() 
-authorize_sheets()</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>() </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">authorize_sheets</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If running this brings up the authorization screen for you, you’ve probably successfully authorized your package!</p>
 <p>To test this: here’s what your basic API function would look like.</p>
 <p>When building your API wrapper functions, you will heavily depend on the Google API reference guide. In this case, we’d reference the sheets reference guide: https://developers.google.com/sheets/api/guides/concepts</p>
@@ -589,55 +589,55 @@ authorize_sheets()</code></pre>
 <p>This is what we will use the <code>httr</code> package for. So install that if you don’t have it.</p>
 <p>That’s the basics.</p>
 <p>Now let’s create a test API wrapper function in a separate file in our <code>R</code> folder.</p>
-<pre><code>#' Get Google Sheet properties
-#' @param id ID of the googlesheet as a character string. A google sheet ID can be found in the URL like https://docs.google.com/spreadsheets/d/&lt;sheet-id-is-here&gt;/edit#gid=0
-#'
-#' @importFrom httr config accept_json content
-#' @importFrom jsonlite fromJSON
-#' @importFrom assertthat assert_that is.string
-#'
-#' @export
-#' @example \dontrun {
-#' 
-#' authorize_sheets()
-#'
-#' get_sheet_properties("13iMGreQq3myZXCflAWfkpXMlgG8Q1bjp-9iuKGfiQFk/")
-#'
-#' }
-
-get_sheet_properties &lt;- function(sheet_id) {
-
-  # Make sure this is a string
-  assert_that(is.string(sheet_id))
-
-  # Here's the endpoint URL we found from the documentation here: https://developers.google.com/drive/api/v3/reference/files/get
-  url &lt;- "https://www.googleapis.com/drive/v3/files/"
-
-  # Get auth token that was stored when we did `authorize_sheets()`
-  token &lt;- get_token()
-  
-  # We're putting this in a format that the API can take
-  config &lt;- httr::config(token = token)
-
-  # Now we are using that GET REST method. Note we are passing in our token with the config and we are telling it to return a JSON file. 
-  result &lt;- httr::GET(url, config = config, accept_json())
-
-  # If something doesn't work, we want to know. 
-  if (httr::status_code(result) != 200) {
-    message("We didn't get the sheet we tried to get. ")
-    
-    httr::stop_for_status(result)
-  }
-
-  # Extract content
-  result_content &lt;- content(result, "text")
-  
-  # Read from the JSON it gave us and make it a list in R
-  result_list &lt;- fromJSON(result_content)
-
-  # Return that list
-  return(result_list)
-}</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Get Google Sheet properties</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param id ID of the googlesheet as a character string. A google sheet ID can be found in the URL like https://docs.google.com/spreadsheets/d/&lt;sheet-id-is-here&gt;/edit#gid=0</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @importFrom httr config accept_json content</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @importFrom jsonlite fromJSON</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @importFrom assertthat assert_that is.string</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#' @example \dontrun {</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#' authorize_sheets()</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">#' get_sheet_properties("13iMGreQq3myZXCflAWfkpXMlgG8Q1bjp-9iuKGfiQFk/")</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#' }</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>get_sheet_properties <span class="ot">&lt;-</span> <span class="cf">function</span>(sheet_id) {</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Make sure this is a string</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assert_that</span>(<span class="fu">is.string</span>(sheet_id))</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Here's the endpoint URL we found from the documentation here: https://developers.google.com/drive/api/v3/reference/files/get</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">&lt;-</span> <span class="st">"https://www.googleapis.com/drive/v3/files/"</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get auth token that was stored when we did `authorize_sheets()`</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  token <span class="ot">&lt;-</span> <span class="fu">get_token</span>()</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We're putting this in a format that the API can take</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  config <span class="ot">&lt;-</span> httr<span class="sc">::</span><span class="fu">config</span>(<span class="at">token =</span> token)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Now we are using that GET REST method. Note we are passing in our token with the config and we are telling it to return a JSON file. </span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> httr<span class="sc">::</span><span class="fu">GET</span>(url, <span class="at">config =</span> config, <span class="fu">accept_json</span>())</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If something doesn't work, we want to know. </span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (httr<span class="sc">::</span><span class="fu">status_code</span>(result) <span class="sc">!=</span> <span class="dv">200</span>) {</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"We didn't get the sheet we tried to get. "</span>)</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    httr<span class="sc">::</span><span class="fu">stop_for_status</span>(result)</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extract content</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>  result_content <span class="ot">&lt;-</span> <span class="fu">content</span>(result, <span class="st">"text"</span>)</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Read from the JSON it gave us and make it a list in R</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  result_list <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(result_content)</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return that list</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result_list)</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Great! Now if we run this to test:</p>
 <pre><code>devtools::load_all() 
 authorize_sheets()

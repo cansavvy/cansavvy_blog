@@ -339,7 +339,7 @@ authorize_sheets() <- function(token = NULL, ...) {
 
 Now we should be able to test this!
 
-```
+```r
 devtools::load_all() 
 authorize_sheets()
 ```
@@ -363,7 +363,7 @@ That's the basics.
 
 Now let's create a test API wrapper function in a separate file in our `R` folder. 
 
-```
+```r
 #' Get Google Sheet properties
 #' @param id ID of the googlesheet as a character string. A google sheet ID can be found in the URL like https://docs.google.com/spreadsheets/d/<sheet-id-is-here>/edit#gid=0
 #'

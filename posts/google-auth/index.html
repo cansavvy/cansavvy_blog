@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Candace Savonen">
+<meta name="dcterms.date" content="2023-04-19">
+
+<title>cansavvy - Google Authorization for Dummies</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">cansavvy</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.cansavvy.com/">
+ <span class="menu-text">cansavvy.com</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/cansavvy"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Google Authorization for Dummies</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">code</div>
+                <div class="quarto-category">analysis</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Candace Savonen </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 19, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>For quite some time, I’ve always wanted to unlock the powers of using Google API in an R package but the authorization bit had always puzzled me!</p>
+<p>This is not to say that others have done a lot of great work in this topic of R packages and Google API! There are a lot of great R packages with documentation out there to help you do this. Two in particular:</p>
+<ul>
+<li><a href="https://gargle.r-lib.org/articles/get-api-credentials.html">How to get your own API credentials</a></li>
+<li><a href="https://code.markedmondson.me/googleAuthR/">googleAuthR</a></li>
+</ul>
+<p>But it seems like the people who understand it: understand it. And the rest of us are left confused!</p>
+<p>I still didn’t understand how to know what kinds of credentials I needed and I always found myself lost in a lacking the correct permissions loop!</p>
+<p>But! I figured it out! And I figured this is a good time to write about it.</p>
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>Google has a load of different apps that are free, online and useful in a daily project workflow.</p>
+<p>First off, what’s an API? It stands for <code>Application Programming Interface</code>. Why am I so excited about having figured this out? APIs are powerful because they allow different computer programs to talk to each other and share information. This means that I (and hopefully you after this blogpost) can use existing tools and features to build new applications faster and more easily. It’s like being able to borrow a tool from a friend instead of having to build it from scratch yourself.</p>
+<p>Let me explain my particular use case:</p>
+<p>I was working on putting a bunch of files on to Google and set them up on Google Classroom. To do this, was very tedious. I had a lot of steps I had to perform for each…and every… individual file. If only there was a way I could write a script that could do this all for me at the call of one script! (There is and I figured it out!)</p>
+<p>But before I could write such a script, I had to be able to get access to the data that is on an Google API, and to do that I needed to figure out authorization.</p>
+<p>Authorization is just a way to tell an App like Google - hey! It’s me, its okay, you can share this data! People do authorization steps all the time when they use their usernames and passwords to login to things. But usernames and passwords are a simpler form of authorization. And when it comes to APIs, these are often not secure enough to keep all this data safe.</p>
+</section>
+<section id="a-dummys-rundown-on-the-auth-types" class="level2">
+<h2 class="anchored" data-anchor-id="a-dummys-rundown-on-the-auth-types">A dummy’s rundown on the auth types</h2>
+<p>It’s me! I’m the dummy! The first place that people would always lose me is the authorization types.</p>
+<ul>
+<li><p><code>Basic Authentication</code>: Basic authentication is a simple authentication method that sends a username and password in plain text with each request to the API. While easy to implement, it is also very insecure because the credentials are sent in plain text and can be intercepted by anyone with access to the network traffic.</p></li>
+<li><p><code>OAuth 2.0</code>: OAuth stands for <code>Open Authorization</code>. It’s an authorization protocol that is widely used by a lot of different websites. The name reflects the fact that the OAuth protocol is designed to provide an open and standardized way for different systems to authorize and authenticate access to protected resources. The 2.0 part just refers to the fact that there was a OAuth 1.0 that is not quite as secure.</p></li>
+<li><p><code>API Keys</code> and <code>Personal Access Tokens</code> - these are less secure ways of authorization but more convenient. They are often special strings of characters, symbols and numbers that you can supply to authorize the API to release your data.</p></li>
+</ul>
+</section>
+<section id="the-goal" class="level2">
+<h2 class="anchored" data-anchor-id="the-goal">The goal</h2>
+<p>If you create an app that uses one of these APIs usually you’ll see a kind of authorization screen like this:</p>
+<p>But what if I’m making the app? How do I make this screen show up so others can use my package to access their own Google data?</p>
+</section>
+<section id="the-meat-and-potaters" class="level2">
+<h2 class="anchored" data-anchor-id="the-meat-and-potaters">The meat and potaters</h2>
+<p>Okay, so how do you create an app that does the authorization thing for a Google API?</p>
+<section id="step-1-make-a-google-cloud-account" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-make-a-google-cloud-account">Step 1) Make a Google Cloud account</h3>
+<p>Go to https://console.cloud.google.com/ and login with your Google account.</p>
+<p>Go to the Google Developers Console at https://console.developers.google.com/.</p>
+</section>
+<section id="step-2-make-a-new-project" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-make-a-new-project">Step 2) Make a new project</h3>
+<p>Create a new project by clicking on the dropdown menu in the top left corner of the screen and selecting “New Project.”</p>
+<p>Give your project a name and click “Create.”</p>
+<p>In the left-hand menu, click on “Credentials.”</p>
+<p>Click on the “Create credentials” button and select “OAuth client ID.”</p>
+<p>Select “Desktop app” or “Other non-UI (e.g.&nbsp;cron job, daemon)” as the application type, depending on your use case.</p>
+<p>Enter a name for your OAuth client.</p>
+<p>Under “Authorized redirect URIs,” leave the field blank.</p>
+<p>Click “Create.”</p>
+<p>Google will generate a client ID and a client secret for you. Copy these values to a safe location.</p>
+</section>
+<section id="using-the-credentials-in-an-r-package" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-credentials-in-an-r-package">Using the credentials in an R package</h3>
+<p>Make an R package</p>
+<p>Open RStudio</p>
+<p>Use the client ID and client secret to authenticate your application and generate an access token. This will typically involve sending an HTTP request to Google’s OAuth 2.0 server with your client ID and secret, along with the appropriate grant type and scope parameters. Google will respond with an access token, which you can then use to make authorized requests to the Google API.</p>
+<p>Note that for security reasons, you should always keep your client secret secret and never expose it in your code or in any publicly accessible location. Instead, you should use a secure method of storing the secret, such as environment variables or a secure key store.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

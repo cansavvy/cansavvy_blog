@@ -7,36 +7,36 @@
     "text": "This is my blog where I post all my cansavvy thoughts. There is no theme. It’s just whatever I feel like writing about.\nThanks."
   },
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
+    "objectID": "posts/google-auth/index.html",
+    "href": "posts/google-auth/index.html",
     "title": "Google Authorization for Dummies",
     "section": "",
     "text": "For quite some time, I’ve always wanted to unlock the powers of using Google API in an R package but the authorization bit had always puzzled me!\nThis is not to say that others have done a lot of great work in this topic of R packages and Google API! There are a lot of great R packages with documentation out there to help you do this. Two in particular:\nBut it seems like the people who understand it: understand it. And the rest of us are left confused!\nI still didn’t understand how to know what kinds of credentials I needed and I always found myself lost in a lacking the correct permissions loop!\nBut! I figured it out! And I figured this is a good time to write about it."
   },
   {
-    "objectID": "posts/post-with-code/index.html#background",
-    "href": "posts/post-with-code/index.html#background",
+    "objectID": "posts/google-auth/index.html#background",
+    "href": "posts/google-auth/index.html#background",
     "title": "Google Authorization for Dummies",
     "section": "Background",
     "text": "Background\nGoogle has a load of different apps that are free, online and useful in a daily project workflow.\nFirst off, what’s an API? It stands for Application Programming Interface. Why am I so excited about having figured this out? APIs are powerful because they allow different computer programs to talk to each other and share information. This means that I (and hopefully you after this blogpost) can use existing tools and features to build new applications faster and more easily. It’s like being able to borrow a tool from a friend instead of having to build it from scratch yourself.\nLet me explain my particular use case:\nI was working on putting a bunch of files on to Google and set them up on Google Classroom. To do this, was very tedious. I had a lot of steps I had to perform for each…and every… individual file. If only there was a way I could write a script that could do this all for me at the call of one script! (There is and I figured it out!)\nBut before I could write such a script, I had to be able to get access to the data that is on an Google API, and to do that I needed to figure out authorization.\nAuthorization is just a way to tell an App like Google - hey! It’s me, its okay, you can share this data! People do authorization steps all the time when they use their usernames and passwords to login to things. But usernames and passwords are a simpler form of authorization. And when it comes to APIs, these are often not secure enough to keep all this data safe."
   },
   {
-    "objectID": "posts/post-with-code/index.html#a-dummys-rundown-on-the-auth-types",
-    "href": "posts/post-with-code/index.html#a-dummys-rundown-on-the-auth-types",
+    "objectID": "posts/google-auth/index.html#a-dummys-rundown-on-the-auth-types",
+    "href": "posts/google-auth/index.html#a-dummys-rundown-on-the-auth-types",
     "title": "Google Authorization for Dummies",
     "section": "A dummy’s rundown on the auth types",
     "text": "A dummy’s rundown on the auth types\nIt’s me! I’m the dummy! The first place that people would always lose me is the authorization types.\n\nBasic Authentication: Basic authentication is a simple authentication method that sends a username and password in plain text with each request to the API. While easy to implement, it is also very insecure because the credentials are sent in plain text and can be intercepted by anyone with access to the network traffic.\nOAuth 2.0: OAuth stands for Open Authorization. It’s an authorization protocol that is widely used by a lot of different websites. The name reflects the fact that the OAuth protocol is designed to provide an open and standardized way for different systems to authorize and authenticate access to protected resources. The 2.0 part just refers to the fact that there was a OAuth 1.0 that is not quite as secure.\nAPI Keys and Personal Access Tokens - these are less secure ways of authorization but more convenient. They are often special strings of characters, symbols and numbers that you can supply to authorize the API to release your data."
   },
   {
-    "objectID": "posts/post-with-code/index.html#the-goal",
-    "href": "posts/post-with-code/index.html#the-goal",
+    "objectID": "posts/google-auth/index.html#the-goal",
+    "href": "posts/google-auth/index.html#the-goal",
     "title": "Google Authorization for Dummies",
     "section": "The goal",
     "text": "The goal\nIf you create an app that uses one of these APIs usually you’ll see a kind of authorization screen like this:\nBut what if I’m making the app? How do I make this screen show up so others can use my package to access their own Google data?"
   },
   {
-    "objectID": "posts/post-with-code/index.html#the-meat-and-potaters",
-    "href": "posts/post-with-code/index.html#the-meat-and-potaters",
+    "objectID": "posts/google-auth/index.html#the-meat-and-potaters",
+    "href": "posts/google-auth/index.html#the-meat-and-potaters",
     "title": "Google Authorization for Dummies",
     "section": "The meat and potaters",
     "text": "The meat and potaters\nOkay, so how do you create an app that does the authorization thing for a Google API?\n\nStep 1) Make a Google Cloud account\nGo to https://console.cloud.google.com/ and login with your Google account.\nGo to the Google Developers Console at https://console.developers.google.com/.\n\n\nStep 2) Make a new project\nCreate a new project by clicking on the dropdown menu in the top left corner of the screen and selecting “New Project.”\nGive your project a name and click “Create.”\nIn the left-hand menu, click on “Credentials.”\nClick on the “Create credentials” button and select “OAuth client ID.”\nSelect “Desktop app” or “Other non-UI (e.g. cron job, daemon)” as the application type, depending on your use case.\nEnter a name for your OAuth client.\nUnder “Authorized redirect URIs,” leave the field blank.\nClick “Create.”\nGoogle will generate a client ID and a client secret for you. Copy these values to a safe location.\n\n\nUsing the credentials in an R package\nMake an R package\nOpen RStudio\nUse the client ID and client secret to authenticate your application and generate an access token. This will typically involve sending an HTTP request to Google’s OAuth 2.0 server with your client ID and secret, along with the appropriate grant type and scope parameters. Google will respond with an access token, which you can then use to make authorized requests to the Google API.\nNote that for security reasons, you should always keep your client secret secret and never expose it in your code or in any publicly accessible location. Instead, you should use a secure method of storing the secret, such as environment variables or a secure key store."

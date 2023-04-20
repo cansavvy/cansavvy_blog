@@ -19,6 +19,9 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
+      - name: Install ottrpal
+        run: Rscript -e "install.packages('ottrpal', repos = 'http://cran.us.r-project.org')"
+        
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:

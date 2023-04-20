@@ -11,7 +11,7 @@ ottrpal::set_knitr_image_path()
 
 For quite some time, I've always wanted to unlock the powers of using Google API in an R package but the authorization bit had always puzzled me! 
 
-This is not to say that others have done a lot of great work in this topic of R packages and Google API! There are a lot of great R packages with documentation out there to help you do this. Two in particular: 
+This is not to say that others have not done a lot of great work in this topic of R packages and Google API! There are a lot of great R packages with documentation out there to help you do this. Two in particular: 
 
 - [How to get your own API credentials](https://gargle.r-lib.org/articles/get-api-credentials.html)
 - [googleAuthR](https://code.markedmondson.me/googleAuthR/)
@@ -364,6 +364,7 @@ That's the basics.
 Now let's create a test API wrapper function in a separate file in our `R` folder. 
 
 ```r
+
 #' Get Google Sheet properties
 #' @param id ID of the googlesheet as a character string. A google sheet ID can be found in the URL like https://docs.google.com/spreadsheets/d/<sheet-id-is-here>/edit#gid=0
 #'
@@ -417,7 +418,7 @@ get_sheet_properties <- function(sheet_id) {
 
 Great! Now if we run this to test: 
 
-```
+```r
 devtools::load_all() 
 authorize_sheets()
 sheet_properties <- get_sheet_properties("sheet-id-here")

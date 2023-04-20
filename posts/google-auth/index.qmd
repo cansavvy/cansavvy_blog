@@ -425,6 +425,8 @@ sheet_properties <- get_sheet_properties("sheet-id-here")
 
 Holy sheet! 
 
+<iframe src="https://giphy.com/embed/CuMiNoTRz2bYc" width="480" height="240" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/giphyqa-CuMiNoTRz2bYc">via GIPHY</a></p>
+
 Hopefully that worked! And hopefully you are off to the races for making your very own API wrapper. 
 
 ## Troubleshooting Tip

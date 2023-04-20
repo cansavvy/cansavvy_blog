@@ -22,6 +22,8 @@ I still didn't understand how to know what kinds of credentials I needed and I a
 
 But! I figured it out! And I figured this is a good time to write about it. 
 
+<div style="width:480px"><iframe allow="fullscreen" frameBorder="0" height="270" src="https://giphy.com/embed/REsujhxE5IKrAvvW1V/video" width="480"></iframe></div>
+
 ## Background 
 
 Google has a load of different apps that are free, online and useful in a daily project workflow. 
@@ -30,9 +32,13 @@ First off, what's an API? It stands for `Application Programming Interface`. Why
 
 Let me explain my particular use case: 
 
-I was working on putting a bunch of files on to Google and set them up on Google Classroom. To do this, was very tedious. I had a lot of steps I had to perform for each...and every... individual file. If only there was a way I could write a script that could do this all for me at the call of one script! (There is and I figured it out!)
+I was working on putting a bunch of files on to Google and set them up on Google Classroom. To do this, was very tedious. I had a lot of steps I had to perform for each...and every... individual file. 
 
+There's gotta be a better way than all this tedious work! 
 
+<iframe src="https://giphy.com/embed/5WXqTFTgO9a7e" width="480" height="339" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/sassy-model-5WXqTFTgO9a7e">via GIPHY</a></p>
+
+If only there was a way I could write a script that could do this all for me at the call of one script! Spoiler alert: There is and I figured it out!
 
 But before I could write such a script, I had to be able to get access to the data that is on an Google API, and to do that I needed to figure out authorization. 
 
@@ -51,6 +57,9 @@ It's me! I'm the dummy! The first place that people would always lose me is the 
 ## The goal 
 
 If you create an app that uses one of these APIs usually you'll see a kind of authorization screen like this: 
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "A google app authorization screen"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g2371c5437bc_0_0")
+```
 
 But what if I'm making the app? How do I make this screen show up so others can use my package to access their own Google data? 
 

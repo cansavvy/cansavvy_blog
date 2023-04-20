@@ -211,12 +211,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>But it seems like the people who understand it: understand it. And the rest of us are left confused!</p>
 <p>I still didn’t understand how to know what kinds of credentials I needed and I always found myself lost in a lacking the correct permissions loop!</p>
 <p>But! I figured it out! And I figured this is a good time to write about it.</p>
+<div style="width:480px">
+<iframe allow="fullscreen" frameborder="0" height="270" src="https://giphy.com/embed/REsujhxE5IKrAvvW1V/video" width="480">
+</iframe>
+</div>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
 <p>Google has a load of different apps that are free, online and useful in a daily project workflow.</p>
 <p>First off, what’s an API? It stands for <code>Application Programming Interface</code>. Why am I so excited about having figured this out? APIs are powerful because they allow different computer programs to talk to each other and share information. This means that I (and hopefully you after this blogpost) can use existing tools and features to build new applications faster and more easily. It’s like being able to borrow a tool from a friend instead of having to build it from scratch yourself.</p>
 <p>Let me explain my particular use case:</p>
-<p>I was working on putting a bunch of files on to Google and set them up on Google Classroom. To do this, was very tedious. I had a lot of steps I had to perform for each…and every… individual file. If only there was a way I could write a script that could do this all for me at the call of one script! (There is and I figured it out!)</p>
+<p>I was working on putting a bunch of files on to Google and set them up on Google Classroom. To do this, was very tedious. I had a lot of steps I had to perform for each…and every… individual file.</p>
+<p>There’s gotta be a better way than all this tedious work!</p>
+<iframe src="https://giphy.com/embed/5WXqTFTgO9a7e" width="480" height="339" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/sassy-model-5WXqTFTgO9a7e">via GIPHY</a>
+</p>
+<p>If only there was a way I could write a script that could do this all for me at the call of one script! Spoiler alert: There is and I figured it out!</p>
 <p>But before I could write such a script, I had to be able to get access to the data that is on an Google API, and to do that I needed to figure out authorization.</p>
 <p>Authorization is just a way to tell an App like Google - hey! It’s me, its okay, you can share this data! People do authorization steps all the time when they use their usernames and passwords to login to things. But usernames and passwords are a simpler form of authorization. And when it comes to APIs, these are often not secure enough to keep all this data safe.</p>
 </section>
@@ -232,6 +243,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="the-goal" class="level2">
 <h2 class="anchored" data-anchor-id="the-goal">The goal</h2>
 <p>If you create an app that uses one of these APIs usually you’ll see a kind of authorization screen like this:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g2371c5437bc_0_0.png" class="img-fluid figure-img" style="width:100.0%" alt="A google app authorization screen"></p>
+</figure>
+</div>
+</div>
+</div>
 <p>But what if I’m making the app? How do I make this screen show up so others can use my package to access their own Google data?</p>
 </section>
 <section id="the-meat-and-potaters" class="level2">

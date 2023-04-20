@@ -217,9 +217,17 @@ Start up an R Package. I follow [Hadley's R Package book everytime](https://r-pk
 
 There are a lot of ways to have users authorize the app, and perhaps some might be more secure than this. I'm a newb at this. 
 
-First, I'm going to take my credentials and read them in and save them to an RDS. I'm going to bury this RDS in the package and I'm not uploading this code to my repository. 
+Here's the packages we'll need: 
 
 ```
+install.packages("httr") 
+install.packages("gargle") 
+install.packages("jsonlite") 
+```
+
+First, I'm going to take my credentials and read them in and save them to an RDS. I'm going to bury this RDS in the package and I'm not uploading this code to my repository. 
+
+```r
 # Read in the creds
 creds <- jsonlite::read_json(list.files(path = file.path(root_dir, ".secrets"), 
                                         pattern = "client_secret_", 
@@ -235,7 +243,7 @@ First let's make a file called `auth.R` or something like that.
 
 In this file, define your scopes that you wrote down when you made the OAuth bits: 
 
-```
+```r
 scopes <- c(
   "https://www.googleapis.com/auth/spreadsheets",
   "https://www.googleapis.com/auth/spreadsheets.readonly",
@@ -253,6 +261,7 @@ A couple more terms to define before we get into some more code:
 
 
 First, some token managing bits (note that a lot of this code is adapted or inspired by [rgoogleslides](https://github.com/hairizuanbinnoorazman/rgoogleslides)).
+
 ```r
 # I can tell people to use the authorize_sheets() function when they start up
 .onAttach <- function(libname, pkgname) {
@@ -300,10 +309,10 @@ authorize_sheets() <- function(token = NULL, ...) {
     )
     
     # the httr package has the google endpoints
-    endpoint <- oauth_endpoints("google")
+    endpoint <- httr::oauth_endpoints("google")
     
     # Now we put everything all together to make the token
-    token <- oauth2.0_token(
+    token <- httr::oauth2.0_token(
       endpoint = endpoint, 
       app = app,
       scope = scopes_list,
@@ -326,7 +335,97 @@ devtools::load_all()
 authorize_sheets()
 ```
 
-If running this brings up the screen for you, you've successfully authorized your package! 
+If running this brings up the authorization screen for you, you've probably successfully authorized your package! 
+
+To test this: here's what your basic API function would look like. 
+
+When building your API wrapper functions, you will heavily depend on the Google API reference guide. In this case, we'd reference the sheets reference guide: https://developers.google.com/sheets/api/guides/concepts 
+
+Also when people say `REST`ful it's referring to that you use these URLs to get stuff from APIs. It includes some actions like: 
+
+- `GET` - to collect info from some existing stuff
+- `POST` to create new stuff
+- `DELETE` to, well, delete stuff
+- `PATCH` - to update existing stuff
+
+This is what we will use the `httr` package for. So install that if you don't have it. 
+
+That's the basics. 
+
+Now let's create a test API wrapper function in a separate file in our `R` folder. 
+
+```
+#' Get Google Sheet properties
+#' @param id ID of the googlesheet as a character string. A google sheet ID can be found in the URL like https://docs.google.com/spreadsheets/d/<sheet-id-is-here>/edit#gid=0
+#'
+#' @importFrom httr config accept_json content
+#' @importFrom jsonlite fromJSON
+#' @importFrom assertthat assert_that is.string
+#'
+#' @export
+#' @example \dontrun {
+#' 
+#' authorize_sheets()
+#'
+#' get_sheet_properties("13iMGreQq3myZXCflAWfkpXMlgG8Q1bjp-9iuKGfiQFk/")
+#'
+#' }
+
+get_sheet_properties <- function(sheet_id) {
+
+  # Make sure this is a string
+  assert_that(is.string(sheet_id))
+
+  # Here's the endpoint URL we found from the documentation here: https://developers.google.com/drive/api/v3/reference/files/get
+  url <- "https://www.googleapis.com/drive/v3/files/"
+
+  # Get auth token that was stored when we did `authorize_sheets()`
+  token <- get_token()
+  
+  # We're putting this in a format that the API can take
+  config <- httr::config(token = token)
+
+  # Now we are using that GET REST method. Note we are passing in our token with the config and we are telling it to return a JSON file. 
+  result <- httr::GET(url, config = config, accept_json())
+
+  # If something doesn't work, we want to know. 
+  if (httr::status_code(result) != 200) {
+    message("We didn't get the sheet we tried to get. ")
+    
+    httr::stop_for_status(result)
+  }
+
+  # Extract content
+  result_content <- content(result, "text")
+  
+  # Read from the JSON it gave us and make it a list in R
+  result_list <- fromJSON(result_content)
+
+  # Return that list
+  return(result_list)
+}
+```
+
+Great! Now if we run this to test: 
+
+```
+devtools::load_all() 
+authorize_sheets()
+sheet_properties <- get_sheet_properties("sheet-id-here")
+```
+
+Holy sheet! 
+
+Hopefully that worked! And hopefully you are off to the races for making your very own API wrapper. 
+
+## Troubleshooting Tip
+
+On a lot of the Google API reference pages they have a `Try it out` thingy. This is super helpful for testing things: 
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Try it out thing on Google API reference is helpful"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g2371c5435f5_0_0")
+```
+
 
 ```{r}
 sessionInfo()

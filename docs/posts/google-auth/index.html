@@ -464,24 +464,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="step-4-using-the-credentials-in-an-r-package">Step 4) Using the credentials in an R package</h3>
 <p>Start up an R Package. I follow <a href="https://r-pkgs.org/setup.html">Hadley’s R Package book everytime</a>.</p>
 <p>There are a lot of ways to have users authorize the app, and perhaps some might be more secure than this. I’m a newb at this.</p>
+<p>Here’s the packages we’ll need:</p>
+<pre><code>install.packages("httr") 
+install.packages("gargle") 
+install.packages("jsonlite") </code></pre>
 <p>First, I’m going to take my credentials and read them in and save them to an RDS. I’m going to bury this RDS in the package and I’m not uploading this code to my repository.</p>
-<pre><code># Read in the creds
-creds &lt;- jsonlite::read_json(list.files(path = file.path(root_dir, ".secrets"), 
-                                        pattern = "client_secret_", 
-                                        full.names = TRUE))
-
-## Save creds to an RDS
-saveRDS(list(client_id = creds$installed$client_id,
-             client_secret = creds$installed$client_secret),
-        file.path(&lt;some buried file in my package&gt;))</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the creds</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>creds <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">read_json</span>(<span class="fu">list.files</span>(<span class="at">path =</span> <span class="fu">file.path</span>(root_dir, <span class="st">".secrets"</span>), </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">pattern =</span> <span class="st">"client_secret_"</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">full.names =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Save creds to an RDS</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(<span class="fu">list</span>(<span class="at">client_id =</span> creds<span class="sc">$</span>installed<span class="sc">$</span>client_id,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">client_secret =</span> creds<span class="sc">$</span>installed<span class="sc">$</span>client_secret),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">file.path</span>(<span class="sc">&lt;</span>some buried file <span class="cf">in</span> my package<span class="sc">&gt;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>First let’s make a file called <code>auth.R</code> or something like that.</p>
 <p>In this file, define your scopes that you wrote down when you made the OAuth bits:</p>
-<pre><code>scopes &lt;- c(
-  "https://www.googleapis.com/auth/spreadsheets",
-  "https://www.googleapis.com/auth/spreadsheets.readonly",
-  "https://www.googleapis.com/auth/drive",
-  "https://www.googleapis.com/auth/drive.readonly",
-  "https://www.googleapis.com/auth/drive.file")</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>scopes <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://www.googleapis.com/auth/spreadsheets"</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://www.googleapis.com/auth/spreadsheets.readonly"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://www.googleapis.com/auth/drive"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://www.googleapis.com/auth/drive.readonly"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://www.googleapis.com/auth/drive.file"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A couple more terms to define before we get into some more code:</p>
 <ul>
 <li><strong>endpoint</strong> - its just a URL where the thing we want is located.</li>
@@ -490,71 +494,152 @@ saveRDS(list(client_id = creds$installed$client_id,
 <li><strong>encryption key</strong> - there’s a lot of ways to encrypt, but the way we did it here is called symmetric encryption in that we give it a key we make up when we encrypt the thing and then to decrypt it we have to give it back that same key.</li>
 </ul>
 <p>First, some token managing bits (note that a lot of this code is adapted or inspired by <a href="https://github.com/hairizuanbinnoorazman/rgoogleslides">rgoogleslides</a>).</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I can tell people to use the authorize_sheets() function when they start up</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>.onAttach <span class="ot">&lt;-</span> <span class="cf">function</span>(libname, pkgname) {</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">packageStartupMessage</span>(<span class="st">"Use authorize_sheets() function to begin."</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># I can make an empty environment where the token will be stored when we have it so that its not just out in the open. </span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>.packageEnv <span class="ot">&lt;-</span> <span class="fu">new.env</span>(<span class="at">parent =</span> <span class="fu">emptyenv</span>())</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># For now the Token is gonna be NULL because we don't have it yet. </span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>.packageEnv<span class="sc">$</span>Token <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># A function to set token to environment</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>set_token <span class="ot">&lt;-</span> <span class="cf">function</span>(value) {</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  .packageEnv<span class="sc">$</span>Token <span class="ot">&lt;-</span> value</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(value)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># A function to retrieveGet token from environment</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>get_token <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  .packageEnv<span class="sc">$</span>Token</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I can tell people to use the authorize_sheets() function when they start up</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>.onAttach <span class="ot">&lt;-</span> <span class="cf">function</span>(libname, pkgname) {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">packageStartupMessage</span>(<span class="st">"Use authorize_sheets() function to begin."</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># I can make an empty environment where the token will be stored when we have it so that its not just out in the open. </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>.packageEnv <span class="ot">&lt;-</span> <span class="fu">new.env</span>(<span class="at">parent =</span> <span class="fu">emptyenv</span>())</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># For now the Token is gonna be NULL because we don't have it yet. </span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>.packageEnv<span class="sc">$</span>Token <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># A function to set token to environment</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>set_token <span class="ot">&lt;-</span> <span class="cf">function</span>(value) {</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  .packageEnv<span class="sc">$</span>Token <span class="ot">&lt;-</span> value</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(value)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># A function to retrieveGet token from environment</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>get_token <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  .packageEnv<span class="sc">$</span>Token</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now for the meat and potaters. This is the function that people will run to actually authorize the package to use their google data.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">authorize_sheets</span>() <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">token =</span> <span class="cn">NULL</span>, ...) {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># I stored the credentials as an encrypted RDS</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># I'm not going to show this bit for security reasons -- but you can figure out your own encryption and security measures. </span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Look at the openssl package. </span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If there isn't a token supplied, it will get one from the RDS</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(token)) {</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This is a nifty function from gargle to set up our app</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    app <span class="ot">&lt;-</span> gargle<span class="sc">::</span><span class="fu">oauth_app</span>(</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">appname =</span> <span class="st">"google-api-r-package"</span>,</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>      <span class="co"># These are just strings that are derived from the credentials JSON we downloaded</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">key =</span> <span class="sc">&lt;</span>client_id from json<span class="sc">/</span>rds<span class="sc">&gt;</span> ,</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">secret =</span> <span class="sc">&lt;</span>client_secret from json<span class="sc">/</span>rds<span class="sc">&gt;</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># the httr package has the google endpoints</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    endpoint <span class="ot">&lt;-</span> <span class="fu">oauth_endpoints</span>(<span class="st">"google"</span>)</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Now we put everything all together to make the token</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    token <span class="ot">&lt;-</span> <span class="fu">oauth2.0_token</span>(</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">endpoint =</span> endpoint, </span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">app =</span> app,</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">scope =</span> scopes_list,</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>      ...</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Now the token is set to the environment so we don't have to do this again</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_token</span>(token)</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Make it invisible for security</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">invisible</span>(token))</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">authorize_sheets</span>() <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">token =</span> <span class="cn">NULL</span>, ...) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># I stored the credentials as an encrypted RDS</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># I'm not going to show this bit for security reasons -- but you can figure out your own encryption and security measures. </span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Look at the openssl package. </span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If there isn't a token supplied, it will get one from the RDS</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(token)) {</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This is a nifty function from gargle to set up our app</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    app <span class="ot">&lt;-</span> gargle<span class="sc">::</span><span class="fu">oauth_app</span>(</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">appname =</span> <span class="st">"google-api-r-package"</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>      <span class="co"># These are just strings that are derived from the credentials JSON we downloaded</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">key =</span> <span class="sc">&lt;</span>client_id from json<span class="sc">/</span>rds<span class="sc">&gt;</span> ,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">secret =</span> <span class="sc">&lt;</span>client_secret from json<span class="sc">/</span>rds<span class="sc">&gt;</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># the httr package has the google endpoints</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    endpoint <span class="ot">&lt;-</span> httr<span class="sc">::</span><span class="fu">oauth_endpoints</span>(<span class="st">"google"</span>)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Now we put everything all together to make the token</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    token <span class="ot">&lt;-</span> httr<span class="sc">::</span><span class="fu">oauth2.0_token</span>(</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">endpoint =</span> endpoint, </span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">app =</span> app,</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">scope =</span> scopes_list,</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>      ...</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Now the token is set to the environment so we don't have to do this again</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_token</span>(token)</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Make it invisible for security</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">invisible</span>(token))</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now we should be able to test this!</p>
 <pre><code>devtools::load_all() 
 authorize_sheets()</code></pre>
-<p>If running this brings up the screen for you, you’ve successfully authorized your package!</p>
+<p>If running this brings up the authorization screen for you, you’ve probably successfully authorized your package!</p>
+<p>To test this: here’s what your basic API function would look like.</p>
+<p>When building your API wrapper functions, you will heavily depend on the Google API reference guide. In this case, we’d reference the sheets reference guide: https://developers.google.com/sheets/api/guides/concepts</p>
+<p>Also when people say <code>REST</code>ful it’s referring to that you use these URLs to get stuff from APIs. It includes some actions like:</p>
+<ul>
+<li><code>GET</code> - to collect info from some existing stuff</li>
+<li><code>POST</code> to create new stuff</li>
+<li><code>DELETE</code> to, well, delete stuff</li>
+<li><code>PATCH</code> - to update existing stuff</li>
+</ul>
+<p>This is what we will use the <code>httr</code> package for. So install that if you don’t have it.</p>
+<p>That’s the basics.</p>
+<p>Now let’s create a test API wrapper function in a separate file in our <code>R</code> folder.</p>
+<pre><code>#' Get Google Sheet properties
+#' @param id ID of the googlesheet as a character string. A google sheet ID can be found in the URL like https://docs.google.com/spreadsheets/d/&lt;sheet-id-is-here&gt;/edit#gid=0
+#'
+#' @importFrom httr config accept_json content
+#' @importFrom jsonlite fromJSON
+#' @importFrom assertthat assert_that is.string
+#'
+#' @export
+#' @example \dontrun {
+#' 
+#' authorize_sheets()
+#'
+#' get_sheet_properties("13iMGreQq3myZXCflAWfkpXMlgG8Q1bjp-9iuKGfiQFk/")
+#'
+#' }
+
+get_sheet_properties &lt;- function(sheet_id) {
+
+  # Make sure this is a string
+  assert_that(is.string(sheet_id))
+
+  # Here's the endpoint URL we found from the documentation here: https://developers.google.com/drive/api/v3/reference/files/get
+  url &lt;- "https://www.googleapis.com/drive/v3/files/"
+
+  # Get auth token that was stored when we did `authorize_sheets()`
+  token &lt;- get_token()
+  
+  # We're putting this in a format that the API can take
+  config &lt;- httr::config(token = token)
+
+  # Now we are using that GET REST method. Note we are passing in our token with the config and we are telling it to return a JSON file. 
+  result &lt;- httr::GET(url, config = config, accept_json())
+
+  # If something doesn't work, we want to know. 
+  if (httr::status_code(result) != 200) {
+    message("We didn't get the sheet we tried to get. ")
+    
+    httr::stop_for_status(result)
+  }
+
+  # Extract content
+  result_content &lt;- content(result, "text")
+  
+  # Read from the JSON it gave us and make it a list in R
+  result_list &lt;- fromJSON(result_content)
+
+  # Return that list
+  return(result_list)
+}</code></pre>
+<p>Great! Now if we run this to test:</p>
+<pre><code>devtools::load_all() 
+authorize_sheets()
+sheet_properties &lt;- get_sheet_properties("sheet-id-here")</code></pre>
+<p>Holy sheet!</p>
+<p>Hopefully that worked! And hopefully you are off to the races for making your very own API wrapper.</p>
+</section>
+</section>
+<section id="troubleshooting-tip" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting-tip">Troubleshooting Tip</h2>
+<p>On a lot of the Google API reference pages they have a <code>Try it out</code> thingy. This is super helpful for testing things:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g2371c5435f5_0_0.png" class="img-fluid figure-img" style="width:100.0%" alt="Try it out thing on Google API reference is helpful"></p>
+</figure>
+</div>
+</div>
+</div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.1.2 (2021-11-01)
 Platform: x86_64-apple-darwin17.0 (64-bit)
@@ -584,7 +669,6 @@ loaded via a namespace (and not attached):
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

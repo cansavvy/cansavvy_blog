@@ -5,6 +5,9 @@ date: "2023-04-19"
 categories: [code, analysis]
 ---
 
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+```
 
 For quite some time, I've always wanted to unlock the powers of using Google API in an R package but the authorization bit had always puzzled me! 
 
@@ -28,6 +31,8 @@ First off, what's an API? It stands for `Application Programming Interface`. Why
 Let me explain my particular use case: 
 
 I was working on putting a bunch of files on to Google and set them up on Google Classroom. To do this, was very tedious. I had a lot of steps I had to perform for each...and every... individual file. If only there was a way I could write a script that could do this all for me at the call of one script! (There is and I figured it out!)
+
+
 
 But before I could write such a script, I had to be able to get access to the data that is on an Google API, and to do that I needed to figure out authorization. 
 
@@ -55,36 +60,274 @@ Okay, so how do you create an app that does the authorization thing for a Google
 
 ### Step 1) Make a Google Cloud account
 
-Go to https://console.cloud.google.com/ and login with your Google account. 
-
 Go to the Google Developers Console at https://console.developers.google.com/.
+
+If you don't have an account yet, it will tell you. Make an account! It's free assuming you aren't doing anything crazy. 
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Go to https://console.cloud.google.com/ and make an account!"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_0")
+```
 
 ### Step 2) Make a new project 
 
-Create a new project by clicking on the dropdown menu in the top left corner of the screen and selecting "New Project."
+Now you'll need to make a project. Go to `Select Project` in the menu bar. 
 
-Give your project a name and click "Create."
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Go to Select Project"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_7")
+```
 
-In the left-hand menu, click on "Credentials."
+Click "New Project."
 
-Click on the "Create credentials" button and select "OAuth client ID."
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Go to Select Project"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_14")
+```
 
-Select "Desktop app" or "Other non-UI (e.g. cron job, daemon)" as the application type, depending on your use case.
+Give your project a name -- whatever will remind you of what this is for -- and click "Create."
 
-Enter a name for your OAuth client.
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Name your project"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_20")
+```
 
-Under "Authorized redirect URIs," leave the field blank.
+You'll be in your project's Dashboard after you create it. You can return here by clicking on this left side menu and going to Cloud Overview >  Dashboard (sometimes this left side menu hides but you can click the three lines to bring it back out).
 
-Click "Create."
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Name your project"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_25")
+```
 
-Google will generate a client ID and a client secret for you. Copy these values to a safe location.
+### Step 3) Enable the API you are looking to use 
 
-### Using the credentials in an R package 
+First you have to enable whatever Google App you want to interact with: Googlesheets, Googledrive, Googleforms, Googleclassroom, etc. 
 
-Make an R package 
+To do this go to that left-had menu and go to click `APIs & Services` and then to `Enable APIs & Services`. 
 
-Open RStudio 
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Name your project"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_35")
+```
 
-Use the client ID and client secret to authenticate your application and generate an access token. This will typically involve sending an HTTP request to Google's OAuth 2.0 server with your client ID and secret, along with the appropriate grant type and scope parameters. Google will respond with an access token, which you can then use to make authorized requests to the Google API.
+On this page, you need to search for that Google app you want access to. Click on the one you want and then on its page, click `Enable`. 
 
-Note that for security reasons, you should always keep your client secret secret and never expose it in your code or in any publicly accessible location. Instead, you should use a secure method of storing the secret, such as environment variables or a secure key store.
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Name your project"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_42")
+```
+
+### Step 4) Get credentials (OAuth 2.0 kind)
+
+We've enabled the API, but to really use it we need to have credentials so our package is allowed to interact with the API and we don't have just any random person accessing our Google data. 
+
+Google will probably suggest to you to `Create credentials` click on this button. But you can also get to the Credentials page by clicking on `Credentials on the left hand side. 
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Name your project"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_20")
+```
+
+Click on the "Create credentials" button and select "OAuth client ID" or if you aren't sure you can say `Help me choose`. 
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Create credentials"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_130")
+```
+
+Select the Google program that you want to interact with (the one we enabled before). And tell it we would like to collect `User data`. 
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Choose the API and then select User data"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_58")
+```
+
+Now we need to supply info for what our OAuth screen that asks the user if they are okay with sending their data to our package. Put the name of your package as you would like users to see it. And put the email they should contact you with any problems with. Then go to the Next step. 
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Put your email and name of your package so users see it on the OAuth page."}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_66")
+```
+
+Put a logo if you would like and then add your email here as well. 
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Putting your email on the OAuth screen"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_72")
+```
+
+Now we have to tell it what scopes we need. Scopes are basically what privileges to what data your package is going to have. If you don't have the right scopes, your package won't have permissions to do anything. If you have too many apps, that is [unnecessarily dangerous to have more permissions than you need](https://csrc.nist.gov/glossary/term/least_privilege#:~:text=Definition(s)%3A,needs%20to%20perform%20its%20function.). 
+
+Click Add/Remove scopes. 
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Name your project"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_78")
+```
+
+Search first for the API you are looking for. For this example, we will use `googlesheets`. 
+ 
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Name your project"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_58")
+```
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Narrow down the scopes"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_90")
+```
+
+Think about what you would like your package to do, and choose the scopes that relate to it. For example, is your package only going to read in a googlesheet but won't edit it? Then choose a `read.only` scope that pertains to `googlesheets`. Read the `user-facing Description` to get an idea of what each will do. When you look in the Google Reference Guide, the methods pages will list the scopes needed toward the bottom of the page. 
+
+You can come back to edit these if you need. So don't worry too much about getting it exactly right, right now. 
+
+The ones you do choose, be sure to write them down in a scratch file somewhere because you'll need to know what they were later. 
+
+Click `Update` when you have the scopes you think you need. 
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Choose the scopes"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_96")
+```
+
+Now you've added the scopes. Go to the next page. 
+
+For this scenario we will select "Desktop app". But if you were making a Shiny App you would choose "Web Application."
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Choosing Desktop App"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_108")
+```
+
+Put a title for these credentials that will remind you want you are using them for. 
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Name the credentials"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_113")
+```
+
+Now download these credentials. Be careful with these! You don't want others to have them so don't load them to GitHub. (Add the file to your .gitignore). 
+
+```{r, fig.align='center', out.width="100%", echo = FALSE, fig.alt= "Name the credentials"}
+ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g232d09b7a8a_0_122")
+```
+
+### Step 3) What do the credentials look like? 
+
+It's a JSON file that has information:
+```
+{"installed":
+  {"client_id":"abunchoflettersandnumbershere.apps.googleusercontent.com",
+   "project_id":"some-words-for-your-projectid",
+   "auth_uri":"https://accounts.google.com/o/oauth2/auth",
+   "token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
+   "client_secret":"another-jumble-of-letters-and-numbers-here",
+   "redirect_uris":["http://localhost"]
+   }
+  }
+```
+
+The client ID and the client secret are what we are gonna need for our package. 
+
+### Step 4) Using the credentials in an R package 
+
+Start up an R Package. I follow [Hadley's R Package book everytime](https://r-pkgs.org/setup.html). 
+
+There are a lot of ways to have users authorize the app, and perhaps some might be more secure than this. I'm a newb at this. 
+
+First, I'm going to take my credentials and read them in and save them to an RDS. I'm going to bury this RDS in the package and I'm not uploading this code to my repository. 
+
+```
+# Read in the creds
+creds <- jsonlite::read_json(list.files(path = file.path(root_dir, ".secrets"), 
+                                        pattern = "client_secret_", 
+                                        full.names = TRUE))
+
+## Save creds to an RDS
+saveRDS(list(client_id = creds$installed$client_id,
+             client_secret = creds$installed$client_secret),
+        file.path(<some buried file in my package>))
+```
+
+First let's make a file called `auth.R` or something like that. 
+
+In this file, define your scopes that you wrote down when you made the OAuth bits: 
+
+```
+scopes <- c(
+  "https://www.googleapis.com/auth/spreadsheets",
+  "https://www.googleapis.com/auth/spreadsheets.readonly",
+  "https://www.googleapis.com/auth/drive",
+  "https://www.googleapis.com/auth/drive.readonly",
+  "https://www.googleapis.com/auth/drive.file")
+```
+
+A couple more terms to define before we get into some more code: 
+
+- **endpoint** - its just a URL where the thing we want is located. 
+- **token** - generally referring to the OAuth token we are going to send Google to get permission to see the things we want to see. 
+- **encyption** - a way for us to hide a file from others. 
+- **encryption key** - there's a lot of ways to encrypt, but the way we did it here is called symmetric encryption in that we give it a key we make up when we encrypt the thing and then to decrypt it we have to give it back that same key. 
+
+
+First, some token managing bits (note that a lot of this code is adapted or inspired by [rgoogleslides](https://github.com/hairizuanbinnoorazman/rgoogleslides)).
+```r
+# I can tell people to use the authorize_sheets() function when they start up
+.onAttach <- function(libname, pkgname) {
+  packageStartupMessage("Use authorize_sheets() function to begin.")
+}
+
+# I can make an empty environment where the token will be stored when we have it so that its not just out in the open. 
+.packageEnv <- new.env(parent = emptyenv())
+
+# For now the Token is gonna be NULL because we don't have it yet. 
+.packageEnv$Token <- NULL
+
+# A function to set token to environment
+set_token <- function(value) {
+  .packageEnv$Token <- value
+  return(value)
+}
+
+# A function to retrieveGet token from environment
+get_token <- function() {
+  .packageEnv$Token
+}
+```
+
+Now for the meat and potaters. This is the function that people will run to actually authorize the package to use their google data.  
+
+```r
+authorize_sheets() <- function(token = NULL, ...) {
+
+  # I stored the credentials as an encrypted RDS
+  # I'm not going to show this bit for security reasons -- but you can figure out your own encryption and security measures. 
+  # Look at the openssl package. 
+  
+  # If there isn't a token supplied, it will get one from the RDS
+  if (is.null(token)) {
+  
+    # This is a nifty function from gargle to set up our app
+    app <- gargle::oauth_app(
+    
+      appname = "google-api-r-package",
+      
+      # These are just strings that are derived from the credentials JSON we downloaded
+      key = <client_id from json/rds> ,
+      secret = <client_secret from json/rds>
+    )
+    
+    # the httr package has the google endpoints
+    endpoint <- oauth_endpoints("google")
+    
+    # Now we put everything all together to make the token
+    token <- oauth2.0_token(
+      endpoint = endpoint, 
+      app = app,
+      scope = scopes_list,
+      ...
+    )
+  }
+  
+  # Now the token is set to the environment so we don't have to do this again
+  set_token(token)
+  
+  # Make it invisible for security
+  return(invisible(token))
+}
+```
+
+Now we should be able to test this!
+
+```
+devtools::load_all() 
+authorize_sheets()
+```
+
+If running this brings up the screen for you, you've successfully authorized your package! 
+
+```{r}
+sessionInfo()
+```

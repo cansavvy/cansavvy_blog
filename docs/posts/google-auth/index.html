@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.298">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,28 +13,97 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link id="quarto-text-highlighting-styles" href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -65,21 +134,24 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../../index.html">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">cansavvy</span>
-  </a>
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://www.cansavvy.com/">cansavvy.com</a>
+    <a class="nav-link" href="https://www.cansavvy.com/">
+ <span class="menu-text">cansavvy.com</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/cansavvy"><i class="bi bi-github" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -92,7 +164,7 @@ ul.task-list{list-style: none;}
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Google Authorization for Dummies</h1>
-                          <div class="quarto-categories">
+                                <div class="quarto-categories">
                 <div class="quarto-category">code</div>
                 <div class="quarto-category">analysis</div>
               </div>
@@ -100,9 +172,6 @@ ul.task-list{list-style: none;}
   </div>
     
   
-
-
-
   <div class="quarto-title-meta">
 
       <div>
@@ -115,9 +184,10 @@ ul.task-list{list-style: none;}
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">2023-04-19</p>
+        <p class="date">April 19, 2023</p>
       </div>
     </div>
+    
       
     </div>
     
@@ -169,35 +239,375 @@ ul.task-list{list-style: none;}
 <p>Okay, so how do you create an app that does the authorization thing for a Google API?</p>
 <section id="step-1-make-a-google-cloud-account" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-make-a-google-cloud-account">Step 1) Make a Google Cloud account</h3>
-<p>Go to https://console.cloud.google.com/ and login with your Google account.</p>
 <p>Go to the Google Developers Console at https://console.developers.google.com/.</p>
+<p>If you don’t have an account yet, it will tell you. Make an account! It’s free assuming you aren’t doing anything crazy.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_0.png" class="img-fluid figure-img" style="width:100.0%" alt="Go to https://console.cloud.google.com/ and make an account!"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="step-2-make-a-new-project" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-make-a-new-project">Step 2) Make a new project</h3>
-<p>Create a new project by clicking on the dropdown menu in the top left corner of the screen and selecting “New Project.”</p>
-<p>Give your project a name and click “Create.”</p>
-<p>In the left-hand menu, click on “Credentials.”</p>
-<p>Click on the “Create credentials” button and select “OAuth client ID.”</p>
-<p>Select “Desktop app” or “Other non-UI (e.g.&nbsp;cron job, daemon)” as the application type, depending on your use case.</p>
-<p>Enter a name for your OAuth client.</p>
-<p>Under “Authorized redirect URIs,” leave the field blank.</p>
-<p>Click “Create.”</p>
-<p>Google will generate a client ID and a client secret for you. Copy these values to a safe location.</p>
+<p>Now you’ll need to make a project. Go to <code>Select Project</code> in the menu bar.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_7.png" class="img-fluid figure-img" style="width:100.0%" alt="Go to Select Project"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Click “New Project.”</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_14.png" class="img-fluid figure-img" style="width:100.0%" alt="Go to Select Project"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Give your project a name – whatever will remind you of what this is for – and click “Create.”</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_20.png" class="img-fluid figure-img" style="width:100.0%" alt="Name your project"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You’ll be in your project’s Dashboard after you create it. You can return here by clicking on this left side menu and going to Cloud Overview &gt; Dashboard (sometimes this left side menu hides but you can click the three lines to bring it back out).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_25.png" class="img-fluid figure-img" style="width:100.0%" alt="Name your project"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="using-the-credentials-in-an-r-package" class="level3">
-<h3 class="anchored" data-anchor-id="using-the-credentials-in-an-r-package">Using the credentials in an R package</h3>
-<p>Make an R package</p>
-<p>Open RStudio</p>
-<p>Use the client ID and client secret to authenticate your application and generate an access token. This will typically involve sending an HTTP request to Google’s OAuth 2.0 server with your client ID and secret, along with the appropriate grant type and scope parameters. Google will respond with an access token, which you can then use to make authorized requests to the Google API.</p>
-<p>Note that for security reasons, you should always keep your client secret secret and never expose it in your code or in any publicly accessible location. Instead, you should use a secure method of storing the secret, such as environment variables or a secure key store.</p>
+<section id="step-3-enable-the-api-you-are-looking-to-use" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-enable-the-api-you-are-looking-to-use">Step 3) Enable the API you are looking to use</h3>
+<p>First you have to enable whatever Google App you want to interact with: Googlesheets, Googledrive, Googleforms, Googleclassroom, etc.</p>
+<p>To do this go to that left-had menu and go to click <code>APIs &amp; Services</code> and then to <code>Enable APIs &amp; Services</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_35.png" class="img-fluid figure-img" style="width:100.0%" alt="Name your project"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>On this page, you need to search for that Google app you want access to. Click on the one you want and then on its page, click <code>Enable</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_42.png" class="img-fluid figure-img" style="width:100.0%" alt="Name your project"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-4-get-credentials-oauth-2.0-kind" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-get-credentials-oauth-2.0-kind">Step 4) Get credentials (OAuth 2.0 kind)</h3>
+<p>We’ve enabled the API, but to really use it we need to have credentials so our package is allowed to interact with the API and we don’t have just any random person accessing our Google data.</p>
+<p>Google will probably suggest to you to <code>Create credentials</code> click on this button. But you can also get to the Credentials page by clicking on `Credentials on the left hand side.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_20.png" class="img-fluid figure-img" style="width:100.0%" alt="Name your project"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Click on the “Create credentials” button and select “OAuth client ID” or if you aren’t sure you can say <code>Help me choose</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_130.png" class="img-fluid figure-img" style="width:100.0%" alt="Create credentials"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Select the Google program that you want to interact with (the one we enabled before). And tell it we would like to collect <code>User data</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_58.png" class="img-fluid figure-img" style="width:100.0%" alt="Choose the API and then select User data"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now we need to supply info for what our OAuth screen that asks the user if they are okay with sending their data to our package. Put the name of your package as you would like users to see it. And put the email they should contact you with any problems with. Then go to the Next step.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_66.png" class="img-fluid figure-img" style="width:100.0%" alt="Put your email and name of your package so users see it on the OAuth page."></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Put a logo if you would like and then add your email here as well.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_72.png" class="img-fluid figure-img" style="width:100.0%" alt="Putting your email on the OAuth screen"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now we have to tell it what scopes we need. Scopes are basically what privileges to what data your package is going to have. If you don’t have the right scopes, your package won’t have permissions to do anything. If you have too many apps, that is <a href="https://csrc.nist.gov/glossary/term/least_privilege#:~:text=Definition(s)%3A,needs%20to%20perform%20its%20function.">unnecessarily dangerous to have more permissions than you need</a>.</p>
+<p>Click Add/Remove scopes.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_78.png" class="img-fluid figure-img" style="width:100.0%" alt="Name your project"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Search first for the API you are looking for. For this example, we will use <code>googlesheets</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_58.png" class="img-fluid figure-img" style="width:100.0%" alt="Name your project"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_90.png" class="img-fluid figure-img" style="width:100.0%" alt="Narrow down the scopes"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Think about what you would like your package to do, and choose the scopes that relate to it. For example, is your package only going to read in a googlesheet but won’t edit it? Then choose a <code>read.only</code> scope that pertains to <code>googlesheets</code>. Read the <code>user-facing Description</code> to get an idea of what each will do. When you look in the Google Reference Guide, the methods pages will list the scopes needed toward the bottom of the page.</p>
+<p>You can come back to edit these if you need. So don’t worry too much about getting it exactly right, right now.</p>
+<p>The ones you do choose, be sure to write them down in a scratch file somewhere because you’ll need to know what they were later.</p>
+<p>Click <code>Update</code> when you have the scopes you think you need.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_96.png" class="img-fluid figure-img" style="width:100.0%" alt="Choose the scopes"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now you’ve added the scopes. Go to the next page.</p>
+<p>For this scenario we will select “Desktop app”. But if you were making a Shiny App you would choose “Web Application.”</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_108.png" class="img-fluid figure-img" style="width:100.0%" alt="Choosing Desktop App"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Put a title for these credentials that will remind you want you are using them for.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_113.png" class="img-fluid figure-img" style="width:100.0%" alt="Name the credentials"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now download these credentials. Be careful with these! You don’t want others to have them so don’t load them to GitHub. (Add the file to your .gitignore).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/index_files/figure-html//18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g232d09b7a8a_0_122.png" class="img-fluid figure-img" style="width:100.0%" alt="Name the credentials"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="step-3-what-do-the-credentials-look-like" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-what-do-the-credentials-look-like">Step 3) What do the credentials look like?</h3>
+<p>It’s a JSON file that has information:</p>
+<pre><code>{"installed":
+  {"client_id":"abunchoflettersandnumbershere.apps.googleusercontent.com",
+   "project_id":"some-words-for-your-projectid",
+   "auth_uri":"https://accounts.google.com/o/oauth2/auth",
+   "token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
+   "client_secret":"another-jumble-of-letters-and-numbers-here",
+   "redirect_uris":["http://localhost"]
+   }
+  }</code></pre>
+<p>The client ID and the client secret are what we are gonna need for our package.</p>
+</section>
+<section id="step-4-using-the-credentials-in-an-r-package" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-using-the-credentials-in-an-r-package">Step 4) Using the credentials in an R package</h3>
+<p>Start up an R Package. I follow <a href="https://r-pkgs.org/setup.html">Hadley’s R Package book everytime</a>.</p>
+<p>There are a lot of ways to have users authorize the app, and perhaps some might be more secure than this. I’m a newb at this.</p>
+<p>First, I’m going to take my credentials and read them in and save them to an RDS. I’m going to bury this RDS in the package and I’m not uploading this code to my repository.</p>
+<pre><code># Read in the creds
+creds &lt;- jsonlite::read_json(list.files(path = file.path(root_dir, ".secrets"), 
+                                        pattern = "client_secret_", 
+                                        full.names = TRUE))
+
+## Save creds to an RDS
+saveRDS(list(client_id = creds$installed$client_id,
+             client_secret = creds$installed$client_secret),
+        file.path(&lt;some buried file in my package&gt;))</code></pre>
+<p>First let’s make a file called <code>auth.R</code> or something like that.</p>
+<p>In this file, define your scopes that you wrote down when you made the OAuth bits:</p>
+<pre><code>scopes &lt;- c(
+  "https://www.googleapis.com/auth/spreadsheets",
+  "https://www.googleapis.com/auth/spreadsheets.readonly",
+  "https://www.googleapis.com/auth/drive",
+  "https://www.googleapis.com/auth/drive.readonly",
+  "https://www.googleapis.com/auth/drive.file")</code></pre>
+<p>A couple more terms to define before we get into some more code:</p>
+<ul>
+<li><strong>endpoint</strong> - its just a URL where the thing we want is located.</li>
+<li><strong>token</strong> - generally referring to the OAuth token we are going to send Google to get permission to see the things we want to see.</li>
+<li><strong>encyption</strong> - a way for us to hide a file from others.</li>
+<li><strong>encryption key</strong> - there’s a lot of ways to encrypt, but the way we did it here is called symmetric encryption in that we give it a key we make up when we encrypt the thing and then to decrypt it we have to give it back that same key.</li>
+</ul>
+<p>First, some token managing bits (note that a lot of this code is adapted or inspired by <a href="https://github.com/hairizuanbinnoorazman/rgoogleslides">rgoogleslides</a>).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I can tell people to use the authorize_sheets() function when they start up</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>.onAttach <span class="ot">&lt;-</span> <span class="cf">function</span>(libname, pkgname) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">packageStartupMessage</span>(<span class="st">"Use authorize_sheets() function to begin."</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># I can make an empty environment where the token will be stored when we have it so that its not just out in the open. </span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>.packageEnv <span class="ot">&lt;-</span> <span class="fu">new.env</span>(<span class="at">parent =</span> <span class="fu">emptyenv</span>())</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># For now the Token is gonna be NULL because we don't have it yet. </span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>.packageEnv<span class="sc">$</span>Token <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># A function to set token to environment</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>set_token <span class="ot">&lt;-</span> <span class="cf">function</span>(value) {</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  .packageEnv<span class="sc">$</span>Token <span class="ot">&lt;-</span> value</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(value)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># A function to retrieveGet token from environment</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>get_token <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  .packageEnv<span class="sc">$</span>Token</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now for the meat and potaters. This is the function that people will run to actually authorize the package to use their google data.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">authorize_sheets</span>() <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">token =</span> <span class="cn">NULL</span>, ...) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># I stored the credentials as an encrypted RDS</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># I'm not going to show this bit for security reasons -- but you can figure out your own encryption and security measures. </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Look at the openssl package. </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If there isn't a token supplied, it will get one from the RDS</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(token)) {</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This is a nifty function from gargle to set up our app</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    app <span class="ot">&lt;-</span> gargle<span class="sc">::</span><span class="fu">oauth_app</span>(</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">appname =</span> <span class="st">"google-api-r-package"</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>      <span class="co"># These are just strings that are derived from the credentials JSON we downloaded</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">key =</span> <span class="sc">&lt;</span>client_id from json<span class="sc">/</span>rds<span class="sc">&gt;</span> ,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">secret =</span> <span class="sc">&lt;</span>client_secret from json<span class="sc">/</span>rds<span class="sc">&gt;</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># the httr package has the google endpoints</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    endpoint <span class="ot">&lt;-</span> <span class="fu">oauth_endpoints</span>(<span class="st">"google"</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Now we put everything all together to make the token</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    token <span class="ot">&lt;-</span> <span class="fu">oauth2.0_token</span>(</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">endpoint =</span> endpoint, </span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">app =</span> app,</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">scope =</span> scopes_list,</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>      ...</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Now the token is set to the environment so we don't have to do this again</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_token</span>(token)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Make it invisible for security</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">invisible</span>(token))</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now we should be able to test this!</p>
+<pre><code>devtools::load_all() 
+authorize_sheets()</code></pre>
+<p>If running this brings up the screen for you, you’ve successfully authorized your package!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.1.2 (2021-11-01)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Big Sur 10.16
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] rstudioapi_0.13   knitr_1.40        magrittr_2.0.3    hms_1.1.2        
+ [5] R6_2.5.1.9000     rlang_1.1.0       fastmap_1.1.0     fansi_1.0.3      
+ [9] httr_1.4.5        stringr_1.4.1     tools_4.1.2       xfun_0.37        
+[13] utf8_1.2.2        cli_3.4.1         htmltools_0.5.2   ellipsis_0.3.2   
+[17] ottrpal_1.0.1     yaml_2.3.5        digest_0.6.29     tibble_3.1.8     
+[21] lifecycle_1.0.3   tzdb_0.3.0        readr_2.1.3       htmlwidgets_1.5.4
+[25] vctrs_0.6.0       fs_1.5.2          curl_5.0.0        glue_1.6.2       
+[29] evaluate_0.17     rmarkdown_2.20    stringi_1.7.8     compiler_4.1.2   
+[33] pillar_1.8.1      jsonlite_1.8.4    pkgconfig_2.0.3  </code></pre>
+</div>
+</div>
 
 
 </section>
 </section>
 
 </main> <!-- /main -->
-<script type="application/javascript">
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -219,7 +629,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -247,31 +674,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

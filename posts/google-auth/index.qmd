@@ -1,5 +1,5 @@
 ---
-title: "Google Authorization for Dummies"
+title: "R package Google Authorization for Dummies"
 author: "Candace Savonen"
 date: "2023-04-19"
 categories: [code, analysis]
@@ -11,10 +11,11 @@ ottrpal::set_knitr_image_path()
 
 For quite some time, I've always wanted to unlock the powers of using Google API in an R package but the authorization bit had always puzzled me! 
 
-This is not to say that others have not done a lot of great work in this topic of R packages and Google API! There are a lot of great R packages with documentation out there to help you do this. Two in particular: 
+This is not to say that others have not done a lot of great work in this topic of R packages and Google API! There are a lot of great R packages with documentation out there to help you do this. Three in particular: 
 
 - [How to get your own API credentials](https://gargle.r-lib.org/articles/get-api-credentials.html)
 - [googleAuthR](https://code.markedmondson.me/googleAuthR/)
+- [How to deal with OAuth2.0 in R packages?](https://blog.r-hub.io/2021/01/25/oauth-2.0/)
 
 But it seems like the people who understand it: understand it. And the rest of us are left confused!
 

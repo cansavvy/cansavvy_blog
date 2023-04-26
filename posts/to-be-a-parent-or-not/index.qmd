@@ -1,0 +1,101 @@
+---
+title: "On joining (or not joining) the parent cult"
+author: "Candace Savonen"
+date: "2023-04-26"
+categories: [family, personal]
+---
+
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+```
+
+And now for something completely different. Most of my blog will probably be me writing about technical things. But I started this blog with literally no bounds on the scope of topics. Which means I will now talk about something that's been on my mind that is more personal. 
+
+I'm at a point in my life where a good chunk of peers (including myself) have drank the kool-aid and decided to have kids. But there's also a good chunk of my peers that are still debating whether or not they want to have kids. 
+
+I used to think I never wanted kids. And now I do have them and I really love them and the #parent-life. But that being said, I remember a short time ago being in this debate in my head and most people (especially people who are parents) are not very helpful to discuss this with. 
+
+Generally the conversations have vibes that lean one of two ways.
+
+1. Overenthusiasm for you to join the parent cult:
+
+<iframe src="https://giphy.com/embed/kHs1lBhZWaK5rj7lt3"  width="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/welcome-cult-one-of-us-kHs1lBhZWaK5rj7lt3"></a></p>
+
+**OR**
+
+2. Equally as unhelpful -- a long bitch fest or woe-is-me about how horrible it is to be a parent.
+
+<iframe src="https://giphy.com/embed/QvMlVkJ3XSSj9cOxDM" width="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/swerk-QvMlVkJ3XSSj9cOxDM"></a></p>
+
+
+So in an attempt to help ease the stress of potentially maybe prospective parents (or not going to become parents) here's some thoughts I'd like to share that I hope are helpful. 
+
+I've gathered these thoughts from talking to therapists, other parents, as well as people who are debating whether to become parents. I jotted most of this while having a baby strapped to me on a cross-continental plane ride.
+
+
+## Deciding to be a parent is illogical
+
+<iframe src="https://giphy.com/embed/6DWXYE1XYiNY4zC3uW"  width="200" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/fallontonight-tonight-show-elizabeth-olsen-no-sense-6DWXYE1XYiNY4zC3uW"></a></p>
+
+It’s not a decision you can make with logic or with a pros and cons list.The “logical” decision in regards to your finances, time, flexibility and stress is always to not have kids. It took me some time to realize this point and it wasn’t comfortable. Logic is often easier to feel comfortable basing a decision on than emotions. But that’s just something our western culture seems to perpetuate and not necessarily true. 
+
+## There is no wrong choice
+
+<iframe src="https://giphy.com/embed/3b3lvvT6jUprrvy5k5"  width="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/ghr-cone-yumm-liny-3b3lvvT6jUprrvy5k5"></a></p>
+
+Kids or no kids you’ll have to learn to be happy. And whatever decision you make will be the right one. So don’t stress about having made the wrong decision. Just focus on adapting and being grateful for the decision you made. FOMO is a waste of emotions regardless of the decision made. 
+
+## Kids won’t make you happier
+
+<iframe src="https://giphy.com/embed/dUTEd9Tg9UfPt1dXRo" width="200"  class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/jonasbrothers-jonas-brothers-dUTEd9Tg9UfPt1dXRo"></a></p>
+
+You’ll be disappointed if happiness is your motivation. Yes, kids make your best days even better than you imagined!! but they also make your worst days even worse. Kids amplify the extremes of life.
+
+## There’s a lot of ways to form families
+
+<iframe src="https://giphy.com/embed/ZtOa0Ko8WYoHtVIwnK" width="200" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/babybluecat-cocofofo-think-outside-the-box-ZtOa0Ko8WYoHtVIwnK"></a></p>
+
+It doesn’t have to be the way you imagined. If you want to have a sense of contributing to the future but aren’t sure about the ‘traditional’ parent route: be a part of someone’s village. There’s lots of kids around who need more than just whatever “traditional” parents they have to help raise and prepare them for the future. The exclusively nuclear family isn’t practical or good for parents or kids. Parents and their kids who don’t have villages are struggling, don’t underestimate the impact you could have as a parent/aunt/uncle figure. 
+
+### You can contribute to society (perhaps even more) without being a parent
+
+<iframe src="https://giphy.com/embed/Za9DpL2vOmfNeJJHDI" width="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/christinegritmon-star-gold-goldstar-Za9DpL2vOmfNeJJHDI"></a></p>
+
+There’s a lot of great ways you can contribute to society that you can’t do as easily with kids. When you have kids you have to be selfish for them. You are no longer able to help others in the way you want to because you have to prioritize your kids first. So having kids is kind of a selfish act in the sense that you are deciding to pour into them instead of others. Having kids is a time where you should ask for help a lot for the sake of them and that’s okay but it is something to think about. 
+
+### There’s never a good time 
+
+<iframe src="https://giphy.com/embed/d3yxg15kJppJilnW" width="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/time-clock-konczakowski-d3yxg15kJppJilnW"></a></p>
+
+Kids will overturn your life in both good and bad ways if and when you decide to do it. So never wait for all the stars to align because life won’t do that. Obviously some times might be marginally easier than others but on the scale of things, you’ll adapt and figure it out no matter what.
+
+### You'll be as good at being a parent as anyone is
+
+<iframe src="https://giphy.com/embed/QPThyMR3U76LQhdpYJ"width="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/good-yay-wonderful-QPThyMR3U76LQhdpYJ"></a></p>
+
+If you are stressed about whether you’d make a “good parent” you’ll be just fine. The mere fact that you are worried about that means you will do a good job as much as anyone can. Best case scenario you will raise your kids with a marginal amount of hang ups and trauma (people never have 0% trauma because parents are human). If you are motivated to be a good parent then you will be fine by just showing up and doing your best (I am writing this telling this to myself I think). People have kids in all kinds of shitty scenarios and kids are pretty resilient. Your context is probably a lot better than you think. 
+
+## Ignore toxicity from people who are parents
+
+<iframe src="https://giphy.com/embed/43M1NPr7bRBKDn74cK" width="200" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/EMUAthletics-emusuperfan-vineremake-43M1NPr7bRBKDn74cK"></a></p>
+
+Don’t listen to some traditional parents who are being gatekeepy about the “parent club”. You’re smart and capable and there’s nothing about parenthood that requires some elite or special set of skills. Parents have a tendency to really bitch about parenting work but I frankly enjoy the grind. A lot of people have kids. It is hard but also really fun. If a parent tries to emphasize that it’s all joy or all hell then they aren’t really being realistic. Parents can be kinda toxic and gatekeepy in their “advice” to fellow parents or prospective parents (“you’ll never understand until you have kids” or “just wait…”— and other unhelpful things they say). You can totally do the parent thing if that is what you want. 
+
+## Ignore toxicity from your own parents or in-laws
+
+<iframe src="https://giphy.com/embed/qn2O3bZDDud7c70g62" width="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/abcnetwork-abc-celebrity-wheel-of-fortune-celebritywheeloffortune-qn2O3bZDDud7c70g62"></a></p>
+
+Fuck the social pressures to have kids. Don’t have kids because your parents or in-laws want to be grandparents. That’s not enough. Don’t let people make you feel like you are “incomplete” if you have decided not to have kids. That’s toxic. Block that out best you can. 
+
+## Conclusion 
+
+In conclusion, I gave you absolutely no helpful determinations on your potential decision but best case scenario maybe you gained an ounce of peace about the whole thing? That's my hope for you anyway. 
+
+And if you'd like to join my kids' village as a fun Aunt or Uncle, there's always available job openings for that! 
+
+<iframe src="https://giphy.com/embed/XpgOZHuDfIkoM" width="460" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/XpgOZHuDfIkoM"></a></p>
+
+
+```{r}
+sessionInfo()
+```

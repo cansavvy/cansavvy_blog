@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/to-be-a-parent-or-not/index.html",
       "/posts/google-auth/index.html",
       "/posts/welcome/index.html"
     ]

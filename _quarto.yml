@@ -3,7 +3,7 @@ project:
   output-dir: docs
   
 website:
-  title: "cansavvy"
+  title: "cansavvy::Candy_Bytes()"
   navbar:
     right:
       - text: cansavvy.com
@@ -12,7 +12,7 @@ website:
         href: https://github.com/cansavvy
 format:
   html:
-    theme: cosmo
+    theme: morph
     css: styles.css
 
 editor: visual

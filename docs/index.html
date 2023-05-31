@@ -70,9 +70,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -132,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(1)</span></div><div class="category" data-category="family">family <span class="quarto-category-count">(1)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(1)</span></div><div class="category" data-category="personal">personal <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(2)</span></div><div class="category" data-category="data science">data science <span class="quarto-category-count">(1)</span></div><div class="category" data-category="documentation">documentation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="family">family <span class="quarto-category-count">(1)</span></div><div class="category" data-category="managment">managment <span class="quarto-category-count">(1)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(1)</span></div><div class="category" data-category="personal">personal <span class="quarto-category-count">(1)</span></div><div class="category" data-category="teaching">teaching <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -144,7 +144,93 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="family,personal" data-listing-date-sort="1682481600000" data-listing-file-modified-sort="1682520827984" data-listing-reading-time-sort="5.76">
+<div class="quarto-post image-right" data-index="0" data-categories="code,managment,documentation" data-listing-date-sort="1685678400000" data-listing-file-modified-sort="1685539900757" data-listing-reading-time-sort="4.015">
+<div class="thumbnail">
+<p><a href="./posts/tech-debt/index.html"> <img src="./posts/tech-debt/resources/images/tech-debt-types.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/tech-debt/index.html">
+<h3 class="no-anchor listing-title">
+Thoughts about Tech Debt
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
+code
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('managment'); return false;">
+managment
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('documentation'); return false;">
+documentation
+</div>
+</div>
+<a href="./posts/tech-debt/index.html">
+<div class="listing-description">
+Tech debt isn’t all bad.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/tech-debt/index.html">
+<div class="listing-date">
+Jun 2, 2023
+</div>
+<div class="listing-author">
+Candace Savonen
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="teaching,data science" data-listing-date-sort="1685505600000" data-listing-file-modified-sort="1685539043119" data-listing-reading-time-sort="1.215">
+<div class="thumbnail">
+<p><a href="./posts/data-science-teaching/index.html"> <img src="./posts/data-science-teaching/resources/images/DataScienceTeachingFigs.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/data-science-teaching/index.html">
+<h3 class="no-anchor listing-title">
+TL;DR for Data Science Teaching
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('teaching'); return false;">
+teaching
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
+data science
+</div>
+</div>
+<a href="./posts/data-science-teaching/index.html">
+<div class="listing-description">
+Our group has just put out a preprint about data science teaching
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/data-science-teaching/index.html">
+<div class="listing-date">
+May 31, 2023
+</div>
+<div class="listing-author">
+Candace Savonen
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="family,personal" data-listing-date-sort="1682481600000" data-listing-file-modified-sort="1682520827984" data-listing-reading-time-sort="5.76">
+<div class="thumbnail">
+<a href="./posts/to-be-a-parent-or-not/index.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/to-be-a-parent-or-not/index.html"></a></p>
+</div>
 <div class="body">
 <a href="./posts/to-be-a-parent-or-not/index.html">
 <h3 class="no-anchor listing-title">
@@ -179,7 +265,14 @@ Candace Savonen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="code,analysis" data-listing-date-sort="1681876800000" data-listing-file-modified-sort="1682519080524" data-listing-reading-time-sort="14.55">
+<div class="quarto-post image-right" data-index="3" data-categories="code,analysis" data-listing-date-sort="1681876800000" data-listing-file-modified-sort="1682519080524" data-listing-reading-time-sort="14.55">
+<div class="thumbnail">
+<a href="./posts/google-auth/index.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/google-auth/index.html"></a></p>
+</div>
 <div class="body">
 <a href="./posts/google-auth/index.html">
 <h3 class="no-anchor listing-title">
@@ -214,7 +307,14 @@ Candace Savonen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="news" data-listing-date-sort="1681617600000" data-listing-file-modified-sort="1682013379987" data-listing-reading-time-sort="0.125">
+<div class="quarto-post image-right" data-index="4" data-categories="news" data-listing-date-sort="1681617600000" data-listing-file-modified-sort="1682013379987" data-listing-reading-time-sort="0.125">
+<div class="thumbnail">
+<a href="./posts/welcome/index.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/welcome/index.html"></a></p>
+</div>
 <div class="body">
 <a href="./posts/welcome/index.html">
 <h3 class="no-anchor listing-title">

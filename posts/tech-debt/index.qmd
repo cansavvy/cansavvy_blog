@@ -1,0 +1,70 @@
+---
+title: "Thoughts about Tech Debt"
+author: "Candace Savonen"
+date: "2023-06-02"
+categories: [code, managment, documentation]
+---
+
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+```
+
+Tech debt isn't all bad. 
+
+## Tech debt is the flip side of project health
+
+Technical debt is generally defined as the accrued cost of using less than optimal solutions now, that you will have to 'pay' for later. 
+
+Just as mortgages and school loans and other types of investments are not always bad (but might still feel that way), not all kinds of tech debt are bad. In fact, for discussions like these, its probably best we frame tech debt as the inverse of 'project health'. 
+
+It's unrealistic to write a perfect project. And even if you did, the software environment surrounding that perfect project would still change and eventually render that perfect project into no longer useful. So how do we conduct ourselves in the real world where 'good code' is only one piece of the puzzle? 
+
+## Types of tech debt
+
+Not all types of tech debt are the same. Just as thousands of dollars in credit card debt for my Hidden Valley ranch habit should not be equated to me storing money away for my child's education fund. One of these is a good use of money (I'll let you guess which). 
+
+Tech debt has been categorized by others ([like this article from asana](https://asana.com/resources/technical-debt)) as being of different types: 
+
+![Types of Tech Debt](resources/images/tech-debt-types.png)
+
+> Prudent and deliberate: The decision to ship quickly and deal with the consequences later causes prudent and deliberate debt. This type of debt is most commonly used when the stakes of the product are relatively low, and the benefits of a quick delivery outweigh the risk. 
+
+> Reckless and deliberate: Knowing how to produce the best code but prioritizing speedy delivery over it is the cause of reckless and deliberate debt.
+
+> Prudent and inadvertent: Prudent and inadvertent debt happens when there’s a desire to produce the best code, but you find a better solution after implementation. 
+
+> Reckless and inadvertent: Reckless and inadvertent debt occurs when a team tries to produce the best code without the necessary knowledge to do so. The team is often unaware of the mistakes they’re making. 
+
+So sometimes tech debt has its place. Prudent and deliberate can help you reach a deadline in scenarios where the stakes are low. But what about the other kinds of tech debt? Ideally we'd like to minimize those, and that relates to how supportive a development environment is. 
+
+## Context, context, context
+
+I have a core belief that people, in general, act accordingly to their context as opposed to intrinsic 'goodness' or 'badness'. In other words most people aren't 'bad apples' but even the 'best apples' will become inedible if you put them in a bowl of worms. 
+
+This applies very much to the workplace. Most people do the best work they can given the context. But some contexts are more supportive and conducive to good work than others. In my own work history, there are some contexts in which I felt I was very well supported and did great work given my skills at the time, and on the flip side, there were other contexts in which I felt my work was not as good as it could have been, not because I didn't care (I cared just as much then as I do know), but that I just didn't have the support or resources to do the work to the same quality it could have been.
+
+In other words, I think data scientists, developers, and other "professional" folks make mistakes when they think that empathy isn't an essential and valuable tool in the workplace. So how do we channel this empathy into creating a supportive work environment? 
+
+### Supportive work environments for minimizing less than ideal kinds of tech debt
+
+To optimize a project's health we need to 1) Understand the goal of the project 2) Be able to implement the project and 3) Have time to do said implementation
+
+1. Understand the goal of the project
+   a. Proper understanding of the problem -- doing groundwork. 
+   b. Communicating and listening to the end user
+2. Be able to implement the project
+   a. Support for training opportunities! Investing in young folks! 
+   b. Code review!
+   c. Written knowledge/documentation 
+   d. Outsource to more knowledgeable people when you can!
+3. Have time to implement the said solutions
+   a. Upfront costs can mean long term gains 
+   b. Do not take on more dishes than you can cook! -- you are going to burn yourself or a dish. 
+
+If you are in an environment that can't give you these things, look into leaving to go to a place that can support you to do your best work!
+
+TODO: I'm going to write more here about my thoughts about antidotes for tech debt, but I'm still learning and haven't composed my thoughts here yet. 
+
+```{r}
+sessionInfo()
+```

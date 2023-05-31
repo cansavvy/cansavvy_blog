@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/tech-debt/index.html",
+      "/posts/data-science-teaching/index.html",
       "/posts/to-be-a-parent-or-not/index.html",
       "/posts/google-auth/index.html",
       "/posts/welcome/index.html"

@@ -14,9 +14,15 @@ Our group has just put out [a preprint about data science teaching](https://arxi
 Here's the TL;DR
 
 ![](resources/images/DataScienceTeachingFigs.png)
-- Data science teaching should be inclusive, motivating, and realistic. Motivating so individuals have the energy to make through steep learning curves, realistic so they are prepared for the data science "real world, and inclusive because data science sorely needs input and perspectives from more than just white straight dudes. 
-- There are a bunch of [practical tips related to these ideals here](https://github.com/datatrail-jhu/data_science_teaching_resources/blob/main/README.md) for download as well as if you'd like to contirbute more ideas! 
-- **The headlines for data science teaching tips in this paper are:** 
+
+#### Summary 
+
+- Data science teaching should be inclusive, motivating, and realistic. Motivating so individuals have the energy to make through steep learning curves, realistic so they are prepared for the data science "real world, and inclusive because data science sorely needs input and perspectives from more than just white straight dudes.   
+- There are a bunch of [practical tips related to these ideals here](https://github.com/datatrail-jhu/data_science_teaching_resources/blob/main/README.md) for download as well as if you'd like to contirbute more ideas!   
+
+
+#### The headlines for data science teaching tips in this paper are:
+
   - Learning takes time! 
   - Mistakes are good! 
   - Be silly in the classroom! 
@@ -27,6 +33,7 @@ Here's the TL;DR
   - Keep it simple, stupid -- we don't need to learn everything today.
   - Encourage curiosity - why do your data look like that?
   - Good communication is critical for data science work!
+  
   
 Data science teachers are continually learning how to better be there for there students, so we need to keep iteratively updating these tips! Please discuss these with us! What have you learned? 
 

@@ -2,7 +2,7 @@
 title: "Meetings are like sleep but they are not refreshing"
 author: "Candace Savonen"
 date: "2023-07-11"
-categories: [how we work, managment, documentation]
+categories: [how we work, management, documentation]
 ---
 
 ```{r, include = FALSE}

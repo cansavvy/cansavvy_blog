@@ -11,23 +11,26 @@ ottrpal::set_knitr_image_path()
 
 Sleep is great. As a mom of 2 kinds under the age of 2, I can tell you I really miss sleep sometimes. At this stage in my life, I have no trouble taking naps if given the opportunity. 
 
-If you know the term "sleep pressure" this post will make a lot of sense to you without me working hard. 
-
-Basically sleep pressure is the term used by sleep research to describe the idea that you need to be tired enough to actually make sleep possible and worth your while. 
+Sleep research people talk our need for sleep using a concept called "sleep pressure." Basically you need to be tired enough to actually make sleep refreshing and worth your while. 
 
 ![Sleep Pressure](resources/images/sleep-pressure.jpg)
+
 From the CDC: 
 
-> Pressure for sleep builds up in our body as our time awake increases. The pressure gets stronger the longer we stay awake and decreases during sleep, reaching a low after a full night of good-quality sleep. The homeostatic process begins to build again after we awaken. The dashed line represents potential increases in pressure to sleep, which will continue to build if sleep does not occur.
+```
+Pressure for sleep builds up in our body as our time awake increases. The pressure gets stronger the longer we stay awake and decreases during sleep, reaching a low after a full night of good-quality sleep. The homeostatic process begins to build again after we awaken. The dashed line represents potential increases in pressure to sleep, which will continue to build if sleep does not occur.
+```
 
 What does this have to do with meetings? 
 
-In our work life, I think we should start thinking of meetings for projects like sleep. We need to have them often enough so that things don't get out of control. But if we nap too often, we will end up feeling groggy/angsty. 
+In our work life, I think we should start thinking of meetings for projects like sleep. We need to have them often enough so that things don't get out of control. But if we having meetings too often, we will end up feeling like we are in a fog. 
 
 ![Meeting Pressure](resources/images/meeting-pressure.png)
+Hence I want to introduce the term "meeting pressure" TM :D
+
 Properly managing "meeting pressure" means we want to avoid two scenarios: 
 
-1. "We dropped the ball" -- uh oh we didn't meet enough (or the more likely case of our meetings weren't focused) and we dropped the ball on something due to ineffective communication. 
+1. "We dropped the ball" - uh oh we didn't meet enough (or the more likely case of our meetings weren't focused) and we dropped the ball on something due to ineffective communication. 
 2. "This could have been an email" - We're wasting people's precious time when really we didn't have enough meeting pressure to begin with to warrant a meeting. Instead we should have used asynchronous communication (caffeine if you will) to delay us to the point where a meeting would have been more necessary and productive. 
 
 ![](resources/images/meeting-pressure-2.png)

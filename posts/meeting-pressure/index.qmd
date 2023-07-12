@@ -1,5 +1,5 @@
 ---
-title: "Meetings are like sleep but not nearly as refreshing"
+title: "Meetings are like sleep but they are not refreshing"
 author: "Candace Savonen"
 date: "2023-07-11"
 categories: [how we work, managment, documentation]
@@ -17,9 +17,9 @@ Sleep research people talk our need for sleep using a concept called "sleep pres
 
 From the CDC: 
 
-```
+`
 Pressure for sleep builds up in our body as our time awake increases. The pressure gets stronger the longer we stay awake and decreases during sleep, reaching a low after a full night of good-quality sleep. The homeostatic process begins to build again after we awaken. The dashed line represents potential increases in pressure to sleep, which will continue to build if sleep does not occur.
-```
+`
 
 What does this have to do with meetings? 
 

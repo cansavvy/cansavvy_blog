@@ -28,7 +28,7 @@ Tech debt has been categorized by others ([like this article from asana](https:/
 ![Types of Tech Debt](resources/images/tech-debt-types.png)
 From this article: 
 
-```
+`
 Prudent and deliberate: The decision to ship quickly and deal with the consequences later causes prudent and deliberate debt. This type of debt is most commonly used when the stakes of the product are relatively low, and the benefits of a quick delivery outweigh the risk. 
 
 Reckless and deliberate: Knowing how to produce the best code but prioritizing speedy delivery over it is the cause of reckless and deliberate debt.
@@ -36,7 +36,7 @@ Reckless and deliberate: Knowing how to produce the best code but prioritizing s
 Prudent and inadvertent: Prudent and inadvertent debt happens when there’s a desire to produce the best code, but you find a better solution after implementation. 
 
 Reckless and inadvertent: Reckless and inadvertent debt occurs when a team tries to produce the best code without the necessary knowledge to do so. The team is often unaware of the mistakes they’re making. 
-```
+`
 
 So sometimes tech debt has its place. Prudent and deliberate can help you reach a deadline in scenarios where the stakes are low. But what about the other kinds of tech debt? Ideally we'd like to minimize those, and that relates to how supportive a development environment is. 
 

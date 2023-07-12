@@ -2,7 +2,7 @@
 title: "Thoughts about Tech Debt"
 author: "Candace Savonen"
 date: "2023-06-02"
-categories: [code, managment, documentation]
+categories: [code, management, documentation]
 ---
 
 ```{r, include = FALSE}

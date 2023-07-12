@@ -1,0 +1,50 @@
+---
+title: "Meetings are like sleep but not nearly as refreshing"
+author: "Candace Savonen"
+date: "2023-07-11"
+categories: [how we work, managment, documentation]
+---
+
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+```
+
+Sleep is great. As a mom of 2 kinds under the age of 2, I can tell you I really miss sleep sometimes. At this stage in my life, I have no trouble taking naps if given the opportunity. 
+
+If you know the term "sleep pressure" this post will make a lot of sense to you without me working hard. 
+
+Basically sleep pressure is the term used by sleep research to describe the idea that you need to be tired enough to actually make sleep possible and worth your while. 
+
+![Sleep Pressure](resources/images/sleep-pressure.jpg)
+From the CDC: 
+
+> Pressure for sleep builds up in our body as our time awake increases. The pressure gets stronger the longer we stay awake and decreases during sleep, reaching a low after a full night of good-quality sleep. The homeostatic process begins to build again after we awaken. The dashed line represents potential increases in pressure to sleep, which will continue to build if sleep does not occur.
+
+What does this have to do with meetings? 
+
+In our work life, I think we should start thinking of meetings for projects like sleep. We need to have them often enough so that things don't get out of control. But if we nap too often, we will end up feeling groggy/angsty. 
+
+![Meeting Pressure](resources/images/meeting-pressure.png)
+Properly managing "meeting pressure" means we want to avoid two scenarios: 
+
+1. "We dropped the ball" -- uh oh we didn't meet enough (or the more likely case of our meetings weren't focused) and we dropped the ball on something due to ineffective communication. 
+2. "This could have been an email" - We're wasting people's precious time when really we didn't have enough meeting pressure to begin with to warrant a meeting. Instead we should have used asynchronous communication (caffeine if you will) to delay us to the point where a meeting would have been more necessary and productive. 
+
+![](resources/images/meeting-pressure-2.png)
+
+
+Other folks out there may have better ideas and more experience to how to manage "meeting pressure" more effectively but here's some things I think should be utilize more often: 
+
+1. Use the dickens out of asynchronous communication. I am a real fan of doing things asynchronously whenever possible. It allow people to have time for focused work but still allows communication to occur. This does require a bit of team adaption for this to work. And notably not all teams and their goals are suitable for making things asynchronous. 
+2. Each individual on the team needs to keep track of their own tasks with a good task management system so that meetings are less often spent rehashing what needs to be done (because hopefully people already know and remember because their task management system reminded them). 
+3. Cancel a meeting if there isn't enough updates! 
+4. Or don't make recurring meetings in the first place if possible. Perhaps use Calendly to just have meetings scheduled on an "as needed" basis (this is a strategy that is easier for groups of smaller numbers).
+5. Try to keep meetings on task by using an agenda and writing things down as people report them. My really big disclaimer for this point is that I also know that for remote work people "water cooler talk time" is also important. So this point needs to be balanced too. Humans still need connection and are not robots who only talk business. 
+
+My huge disclaimer here is 1) I'm coming from my own project experience which is generally revolving around making data science training materials or software development. Meeting pressure management strategies are totally dependent on the teams and the goals that they have. This isn't one size fits all. 
+
+I'd love to hear other people's thoughts on this. What do you think about your various groups' "meeting pressure" management? What do you find works well for your team? Or what doesn't? 
+
+```{r}
+sessionInfo()
+```

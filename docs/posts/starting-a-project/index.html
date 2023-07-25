@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Candace Savonen">
+<meta name="dcterms.date" content="2023-07-25">
+
+<title>cansavvy::Candy_Bytes() - Help! I’m frozen and I can’t get going on this project!</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">cansavvy::Candy_Bytes()</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.cansavvy.com/" rel="" target="">
+ <span class="menu-text">cansavvy.com</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/cansavvy" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Help! I’m frozen and I can’t get going on this project!</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">how we work</div>
+                <div class="quarto-category">data science</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Candace Savonen </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 25, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p><em>blank page frozenitis</em> is a thing.</p>
+<p>Sometimes the hardest part of a project is getting started. For better or worse, my contributions to teams has often been making a draft of something pretty quickly.</p>
+<p>If there’s an actual thing that can be talked about and picked a part that cna help get the juices flowing. Drafts are often that thing. Even if the draft I make basically gets completely trashed, it still serves a purpose in that it may help get a discussion going about what we did NOT like about that first draft – and the second draft would be better.</p>
+<p>So how do we get started?</p>
+<section id="dont-be-afraid-of-mistakes" class="level2">
+<h2 class="anchored" data-anchor-id="dont-be-afraid-of-mistakes">1. Don’t be afraid of mistakes!</h2>
+<p>Sometimes we aren’t frozen because we don’t know what to do; we are frozen because we are afraid of doing it wrong! The fear of mistakes or high emphasis on perfectionism can be crippling!And sometimes this fear is out of proportion with what the consequences of having a mistake out on the internet would actually be.</p>
+<p>For a lot of projects, mistakes on the internet are not so bad and can even lead to meeting a nice person on the internet who points out how your product could be improved!</p>
+<p>Instead of focusing on making it perfect, tell yourself you can return to your project and (re)iterate and fix your content/code as many times as you need.</p>
+</section>
+<section id="open-up-a-document-anywhere-somewhere" class="level2">
+<h2 class="anchored" data-anchor-id="open-up-a-document-anywhere-somewhere">2. Open up a document – anywhere! Somewhere!</h2>
+<p>Write as you think so you can form your thoughts like clay as you move along.</p>
+<p>Starting with a Google doc or a Google spreadsheet is a good plan. If you start in a google doc this makes it easily shareable and editable by your teammates. Then when anyone makes an update or leaves a comment or question, anyone who has been shared the doc has the latest in the discussion without the need for another email to be sent.</p>
+<p>What kind of doc should you start with?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="resources/images/project-starting.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Project starting docs</figcaption>
+</figure>
+</div>
+<p><code>Software thing</code> -&gt; Open a <a href="https://github.com/">GitHub issue and/or GitHub repo</a> <code>Manuscript, Communication, Course, or Presentation</code> -&gt; Start with a <a href="https://www.google.com/docs/about/">Google doc</a> outline <code>Database, data collection, or listing</code> -&gt; Start with a <a href="https://www.google.com/sheets/about/">Googlesheet</a> <code>Survey</code> -&gt; Start with a <a href="https://docs.google.com/forms/u/0/">Google form</a></p>
+</section>
+<section id="write-down-the-goals." class="level2">
+<h2 class="anchored" data-anchor-id="write-down-the-goals.">3. Write down the goals.</h2>
+<p>In this new doc, write down the goals in the bullet point list of needs to happen for this project. The more distinct, succinct and clear these goals can be the better.</p>
+<p>It can be easy to get off track super quickly when getting started and miss the mark. These goals you right should as much as possible relate to endpoints that relate to who is going to use this thing.</p>
+<section id="who-is-the-user-of-the-end-product-of-this" class="level3">
+<h3 class="anchored" data-anchor-id="who-is-the-user-of-the-end-product-of-this">Who is the user of the end product of this?</h3>
+<p>The best way to create something that is useful is to have the person who this product is for in mind.</p>
+<p>If the person is only you, it will hopefully be easier to answer these questions. But if its something for other people you may have to do more thinking, collaborating, talking and perhaps more formal data collections and surveys to truly understand.</p>
+<p>** When they arrive to this product… **</p>
+<ul>
+<li>What will this person know (or not know)?</li>
+<li>What will this person’s goals be?</li>
+<li>What will this person expect from this?</li>
+</ul>
+</section>
+</section>
+<section id="make-a-big-picture-framework" class="level2">
+<h2 class="anchored" data-anchor-id="make-a-big-picture-framework">4. Make a big picture framework</h2>
+<p>Keeping these goals in mind, try to sketch out a rough picture of what you think this. might look like.</p>
+<p>If this is content, make an outline. Outlines often look like this:</p>
+<pre><code>I. Why the main topic is so important and relatable. 
+   A. Relatable story about this main topic 
+   B. Stats or stories about the importance of this main topic
+II. The fundamentals (prerequisites) we need to cover before we can dive into the main topic. 
+III.
+IV. A summary of what this has covered and a reminder of why this is so important. </code></pre>
+</section>
+<section id="collect-and-dump" class="level2">
+<h2 class="anchored" data-anchor-id="collect-and-dump">5. Collect and dump</h2>
+<p>Sometimes even in your draft you don’t need to start from scratch. Maybe you or someone else has created something related to what you are going to make. Copy and paste stuff and dump it into your Google doc or other doc to get started.</p>
+<p>If you know someone who may know more about a particular topic, as them to refer you to sources or related code repos.</p>
+<ul>
+<li>If you are creating code-based product – look for StackOverflow posts or perhaps ask a chatbot for dummy code. <a href="https://hutchdatascience.org/AI_for_software/">Read this course for more about how to use AI properly for software dev.</a></li>
+<li>If you are creating content of some form – Google for manuscripts, articles, blogs, scholarly articles that have the content you are looking for.</li>
+</ul>
+<p>For both chatbot and search engine usage there’s a few things to know: 1. Never take the first answer – reiterate and try different variations your google search or chatbot request. 2. Always record your sources! and in the case of chatbots, verify their accuracy!</p>
+<p>Find articles that are related? Dump the links to those (no need to read them thoroughly at the get go, just dump them all in there).</p>
+</section>
+<section id="start-with-the-easiest-thing-for-you-to-writecreate" class="level2">
+<h2 class="anchored" data-anchor-id="start-with-the-easiest-thing-for-you-to-writecreate">6. Start with the easiest thing for you to write/create</h2>
+<p>Write content that you are most passionate and knowledgeable about first. Do you enjoy making visuals? Do that first! Are there topics or code you have a lot of familiarity with that it would be easy for you to start with? Start with that!</p>
+<p>Stuff that you know less about or that you need teammates to weight in on, mark where that content/code would need to go. Tag them so they know.</p>
+<p>ChatGPT, Claude, Barde and other Large Language Models can be handy to ask for drafts or advice on sections you know less about. They can definitely help with “blank page frozenness syndrome” But use these chatbots with caution! You still need to verify any information that these chatbots give you. <a href="https://hutchdatascience.org/AI_for_software/">Read this course for more about how to use AI properly for software dev.</a></p>
+</section>
+<section id="leave-and-come-back" class="level2">
+<h2 class="anchored" data-anchor-id="leave-and-come-back">7. Leave and come back</h2>
+<p>If you feel you are slowing down at some point. Put it away and come back to it tomorrow! Breaks and rest are productive too!</p>
+</section>
+<section id="feedback-feedback-and-more-feedback." class="level2">
+<h2 class="anchored" data-anchor-id="feedback-feedback-and-more-feedback.">8. Feedback feedback and more feedback.</h2>
+<p>Now that you have some things formed somewhat. It can be a great time to show it to a teammate or others.</p>
+<p>But here’s the key! You have to be ready to receive and adapt to that feedback. That means not holding too tightly on to your draft! (Remember it is a draft! Not a final product – and even final products shouldn’t be seen as final products if a new way to improve them is found and can be incorporated)</p>
+<p>Some feedback you may disagree with, but as much as possible, you should strive to accommodate your teammate’s suggestions in accordance with their knowledge on the topic or product. Sometimes individuals on a team may see something others don’t! And its a great opportunity for everyone to learn.</p>
+</section>
+<section id="soft-launches" class="level2">
+<h2 class="anchored" data-anchor-id="soft-launches">9. Soft launches</h2>
+<p>As you and your team are incorporate feedback, you will want to decide when or how to collect information from the users of the product you are making. Note that internal products or things that don’t have “users” in the traditional sense. But feedback can can range from super informal to more formal depending on the projects’ needs.</p>
+<p><a href="https://jhudatascience.org/Documentation_and_Usability/obtaining-user-feedback.html">In this chapter I discuss more details about how to conduct formal-ish user feedback</a>.</p>
+<p>*This blog post is still under construction – but this blog post emphasizes that mistakes are okay and iteration is good, so I’m putting it out there early!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.1.2 (2021-11-01)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Big Sur 10.16
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] rstudioapi_0.13   knitr_1.43        magrittr_2.0.3    hms_1.1.2        
+ [5] R6_2.5.1.9000     rlang_1.1.1       fastmap_1.1.1     fansi_1.0.4      
+ [9] tools_4.1.2       xfun_0.39         utf8_1.2.3        cli_3.6.1        
+[13] htmltools_0.5.2   ellipsis_0.3.2    ottrpal_1.0.1     yaml_2.3.7       
+[17] digest_0.6.33     tibble_3.2.1      lifecycle_1.0.3   tzdb_0.3.0       
+[21] readr_2.1.3       htmlwidgets_1.5.4 vctrs_0.6.3       fs_1.6.2         
+[25] glue_1.6.2        evaluate_0.21     rmarkdown_2.20    compiler_4.1.2   
+[29] pillar_1.9.0      jsonlite_1.8.7    pkgconfig_2.0.3  </code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

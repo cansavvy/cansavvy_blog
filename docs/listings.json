@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/starting-a-project/index.html",
       "/posts/meeting-pressure/index.html",
       "/posts/tech-debt/index.html",
       "/posts/data-science-teaching/index.html",

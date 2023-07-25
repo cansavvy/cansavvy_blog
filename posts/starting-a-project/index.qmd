@@ -1,0 +1,125 @@
+---
+title: "Help! I'm frozen and I can't get going on this project!"
+author: "Candace Savonen"
+date: "2023-07-25"
+categories: [how we work, data science]
+---
+
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+```
+
+*blank page frozenitis* is a thing. 
+
+Sometimes the hardest part of a project is getting started. For better or worse, my contributions to teams has often been making a draft of something pretty quickly. 
+
+If there's an actual thing that can be talked about and picked a part that cna help get the juices flowing. Drafts are often that thing. Even if the draft I make basically gets completely trashed, it still serves a purpose in that it may help get a discussion going about what we did NOT like about that first draft -- and the second draft would be better. 
+
+So how do we get started? 
+
+## 1. Don't be afraid of mistakes!
+
+Sometimes we aren't frozen because we don't know what to do; we are frozen because we are afraid of doing it wrong! The fear of mistakes or high emphasis on perfectionism can be crippling!And sometimes this fear is out of proportion with what the consequences of having a mistake out on the internet would actually be. 
+
+For a lot of projects, mistakes on the internet are not so bad and can even lead to meeting a nice person on the internet who points out how your product could be improved!
+
+Instead of focusing on making it perfect, tell yourself you can return to your project and (re)iterate and fix your content/code as many times as you need. 
+
+## 2. Open up a document -- anywhere! Somewhere! 
+
+Write as you think so you can form your thoughts like clay as you move along. 
+
+Starting with a Google doc or a Google spreadsheet is a good plan. If you start in a google doc this makes it easily shareable and editable by your teammates. Then when anyone makes an update or leaves a comment or question, anyone who has been shared the doc has the latest in the discussion without the need for another email to be sent. 
+
+What kind of doc should you start with? 
+
+![Project starting docs](resources/images/project-starting.png)
+
+`Software thing` -> Open a [GitHub issue and/or GitHub repo](https://github.com/)
+`Manuscript, Communication, Course, or Presentation` -> Start with a [Google doc](https://www.google.com/docs/about/) outline
+`Database, data collection, or listing` -> Start with a [Googlesheet](https://www.google.com/sheets/about/)
+`Survey` -> Start with a [Google form](https://docs.google.com/forms/u/0/)
+
+## 3. Write down the goals. 
+
+In this new doc, write down the goals in the bullet point list of needs to happen for this project.
+The more distinct, succinct and clear these goals can be the better.
+
+It can be easy to get off track super quickly when getting started and miss the mark. These goals you right should as much as possible relate to endpoints that relate to who is going to use this thing. 
+
+### Who is the user of the end product of this? 
+
+The best way to create something that is useful is to have the person who this product is for in mind. 
+
+If the person is only you, it will hopefully be easier to answer these questions. But if its something for other people you may have to do more thinking, collaborating, talking and perhaps more formal data collections and surveys to truly understand. 
+
+** When they arrive to this product... **
+
+- What will this person know (or not know)?
+- What will this person's goals be? 
+- What will this person expect from this?
+
+
+## 4. Make a big picture framework
+
+Keeping these goals in mind, try to sketch out a rough picture of what you think this. might look like. 
+
+If this is content, make an outline. Outlines often look like this: 
+
+```
+I. Why the main topic is so important and relatable. 
+   A. Relatable story about this main topic 
+   B. Stats or stories about the importance of this main topic
+II. The fundamentals (prerequisites) we need to cover before we can dive into the main topic. 
+III.
+IV. A summary of what this has covered and a reminder of why this is so important. 
+```
+
+## 5. Collect and dump 
+
+Sometimes even in your draft you don't need to start from scratch. Maybe you or someone else has created something related to what you are going to make. Copy and paste stuff and dump it into your Google doc or other doc to get started. 
+
+If you know someone who may know more about a particular topic, as them to refer you to sources or related code repos. 
+
+- If you are creating code-based product -- look for StackOverflow posts or perhaps ask a chatbot for dummy code. [Read this course for more about how to use AI properly for software dev.](https://hutchdatascience.org/AI_for_software/) 
+- If you are creating content of some form -- Google for manuscripts, articles, blogs, scholarly articles that have the content you are looking for.  
+
+For both chatbot and search engine usage there's a few things to know: 
+1. Never take the first answer -- reiterate and try different variations your google search or chatbot request. 
+2. Always record your sources! and in the case of chatbots, verify their accuracy!
+
+Find articles that are related? Dump the links to those (no need to read them thoroughly at the get go, just dump them all in there). 
+
+## 6. Start with the easiest thing for you to write/create 
+
+Write content that you are most passionate and knowledgeable about first. Do you enjoy making visuals? Do that first! Are there topics or code you have a lot of familiarity with that it would be easy for you to start with? Start with that!  
+
+Stuff that you know less about or that you need teammates to weight in on, mark where that content/code would need to go. Tag them so they know. 
+
+ChatGPT, Claude, Barde and other Large Language Models can be handy to ask for drafts or advice on sections you know less about. They can definitely help with "blank page frozenness syndrome" But use these chatbots with caution! You still need to verify any information that these chatbots give you. [Read this course for more about how to use AI properly for software dev.](https://hutchdatascience.org/AI_for_software/) 
+
+## 7. Leave and come back 
+
+If you feel you are slowing down at some point. Put it away and come back to it tomorrow! Breaks and rest are productive too!
+
+## 8. Feedback feedback and more feedback. 
+
+Now that you have some things formed somewhat. It can be a great time to show it to a teammate or others. 
+
+But here's the key! You have to be ready to receive and adapt to that feedback. That means not holding too tightly on to your draft! (Remember it is a draft! Not a final product -- and even final products shouldn't be seen as final products if a new way to improve them is found and can be incorporated)
+
+Some feedback you may disagree with, but as much as possible, you should strive to accommodate your teammate's suggestions in accordance with their knowledge on the topic or product. Sometimes individuals on a team may see something others don't! And its a great opportunity for everyone to learn.  
+
+## 9. Soft launches 
+
+As you and your team are incorporate feedback, you will want to decide when or how to collect information from the users of the product you are making. Note that internal products or things that don't have "users" in the traditional sense. But feedback can can range from super informal to more formal depending on the projects' needs. 
+
+[In this chapter I discuss more details about how to conduct formal-ish user feedback](https://jhudatascience.org/Documentation_and_Usability/obtaining-user-feedback.html).
+
+
+\*This blog post is still under construction -- but this blog post emphasizes that mistakes are okay and iteration is good, so I'm putting it out there early! 
+
+
+```{r}
+sessionInfo()
+```

@@ -9,7 +9,7 @@ categories: [how we work, data science]
 ottrpal::set_knitr_image_path()
 ```
 
-*blank page frozenitis* is a thing. 
+*Blank page frozenitis* is a thing. 
 
 Sometimes the hardest part of a project is getting started. For better or worse, my contributions to teams has often been making a draft of something pretty quickly. 
 
@@ -35,10 +35,10 @@ What kind of doc should you start with?
 
 ![Project starting docs](resources/images/project-starting.png)
 
-`Software thing` -> Open a [GitHub issue and/or GitHub repo](https://github.com/)
-`Manuscript, Communication, Course, or Presentation` -> Start with a [Google doc](https://www.google.com/docs/about/) outline
-`Database, data collection, or listing` -> Start with a [Googlesheet](https://www.google.com/sheets/about/)
-`Survey` -> Start with a [Google form](https://docs.google.com/forms/u/0/)
+- `Software thing` -> Open a [GitHub issue and/or GitHub repo](https://github.com/). 
+- `Manuscript, Communication, Course, or Presentation` -> Start with a [Google doc](https://www.google.com/docs/about/) outline. 
+- `Database, data collection, or listing` -> Start with a [Googlesheet](https://www.google.com/sheets/about/). 
+- `Survey` -> Start with a [Google form](https://docs.google.com/forms/u/0/). 
 
 ## 3. Write down the goals. 
 
@@ -59,7 +59,6 @@ If the person is only you, it will hopefully be easier to answer these questions
 - What will this person's goals be? 
 - What will this person expect from this?
 
-
 ## 4. Make a big picture framework
 
 Keeping these goals in mind, try to sketch out a rough picture of what you think this. might look like. 
@@ -67,12 +66,12 @@ Keeping these goals in mind, try to sketch out a rough picture of what you think
 If this is content, make an outline. Outlines often look like this: 
 
 ```
-I. Why the main topic is so important and relatable. 
-   A. Relatable story about this main topic 
-   B. Stats or stories about the importance of this main topic
+I - Why the main topic is so important and relatable. 
+   A - Relatable story about this main topic 
+   B - Stats or stories about the importance of this main topic
 II. The fundamentals (prerequisites) we need to cover before we can dive into the main topic. 
-III.
-IV. A summary of what this has covered and a reminder of why this is so important. 
+III - (as many chapters as needed). Main topic(s)
+Last chapter - A summary of what this has covered and a reminder of why this is so important. 
 ```
 
 ## 5. Collect and dump 
@@ -85,10 +84,11 @@ If you know someone who may know more about a particular topic, as them to refer
 - If you are creating content of some form -- Google for manuscripts, articles, blogs, scholarly articles that have the content you are looking for.  
 
 For both chatbot and search engine usage there's a few things to know: 
-1. Never take the first answer -- reiterate and try different variations your google search or chatbot request. 
-2. Always record your sources! and in the case of chatbots, verify their accuracy!
 
-Find articles that are related? Dump the links to those (no need to read them thoroughly at the get go, just dump them all in there). 
+1. Never take the first answer -- reiterate and try different variations your google search or chatbot request.   
+2. Always record your sources! and in the case of chatbots, verify their accuracy!  
+
+Find articles that are related? Dump the links to those in your outline where they make sense (no need to read them thoroughly at the get go, just dump them all in there and you can read them thoroughly when you write about them). 
 
 ## 6. Start with the easiest thing for you to write/create 
 

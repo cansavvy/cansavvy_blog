@@ -13,7 +13,8 @@ ottrpal::set_knitr_image_path()
 
 Sometimes the hardest part of a project is getting started.
 
-![Spongebob has writer's block](resources/images/writers+block.gif)
+![](resources/images/writers+block.gif)
+`Spongebob has writer's block`  
 
 If there's an actual thing that can be talked about and picked a part that can help get the juices flowing. Drafts are often that thing. Even if the draft I make basically gets completely trashed, it still serves a purpose in that it may help get a discussion going about what we did NOT like about that first draft -- and the second draft would be better. 
 
@@ -23,18 +24,19 @@ So how do we get started? (this blog is really just me describing my general pro
 
 Sometimes we aren't frozen because we don't know what to do; we are frozen because we are afraid of doing it wrong! The fear of mistakes or high emphasis on perfectionism can be crippling! And sometimes this fear is out of proportion with what the consequences of having a mistake out on the internet would actually be. 
 
-![Spongebob is fearful of letting anyone see his draft](https://media.giphy.com/media/xTeV7s0qHSWgWI4PMQ/giphy.gif)
+![](https://media.giphy.com/media/xTeV7s0qHSWgWI4PMQ/giphy.gif)  
+`Spongebob is fearful of letting anyone see his draft`  
 
 For a lot of projects, mistakes on the internet are not so bad and can even lead to meeting a nice person on the internet who points out how your product could be improved! Sometimes (not always) a 85% developed project is more useful than waiting for a 100% developed project that may never come. OR sometimes that 85% developed project should be put out there so that the last 15% can be better influenced by others!
 
-![When to publish](resources/images/when-to-publish-curve.png)
+![](resources/images/when-to-publish-curve.png)
 
 Instead of focusing on making it perfect, tell yourself you can return to your project and (re)iterate and fix your content/code as many times as you need. There's a tricky balance for finding the most effective time to request feedback. 
 
 But my point here is, ask yourself:
 
 - **The perfectionist** - If you are a person who waits for a project to be perfect -- would the project benefit from getting feedback sooner? Would your teammate benefit from seeing what you are working on sooner so they can help and give their input?
-- **The jumpy worker** - If you are a person who jumps too quickly to ask for feedback -- would the project (and your feedback giving people) benefit from you taking a beat to review the material a bit more yourself? Keep in mind feedback is a lot of work too. So moving too quickly to put something on someone else's plate can also be 
+- **The jumpy worker** - If you are a person who jumps too quickly to ask for feedback -- would the project (and your feedback giving people) benefit from you taking a beat to review the material a bit more yourself? Keep in mind feedback is a lot of work too. So moving too quickly to put something on someone else's plate can also be not great for your teammates. 
 
 Over the years I've been both of these at times for certain projects: where I've waited too long or not long enough to ask for feedback. 
 
@@ -46,7 +48,7 @@ Starting with a Google doc or a Google spreadsheet is a good plan. If you start 
 
 What kind of doc should you start with? 
 
-![Project starting docs](resources/images/project-starting.png)
+![](resources/images/project-starting.png)
 
 - `Software thing` -> Open a [GitHub issue and/or GitHub repo](https://github.com/). Or if this software thing is going to have an interface or would otherwise benefit from a visual, a Google Slide image might help.  
 - `Manuscript, Communication, Course, or Presentation` -> Start with a [Google doc](https://www.google.com/docs/about/) outline. 
@@ -69,7 +71,7 @@ You also may want to think about how this product is going to differ from alread
 The best way to create something that is useful is to have the person who this product is for in mind. 
 
 If the person is only you, it will hopefully be easier to answer these questions. But if its something for other people you may have to do more thinking, collaborating, talking and perhaps more formal data collections and surveys to truly understand. 
-![Who are you](https://media.giphy.com/media/XI3OsTKpljGbm/giphy.gif)
+![](https://media.giphy.com/media/XI3OsTKpljGbm/giphy.gif)
 
 **When they arrive to this product... **
 
@@ -121,7 +123,8 @@ ChatGPT, Claude, Barde and other Large Language Models can be handy to ask for b
 
 Sometimes even in your draft you don't need to start from scratch. Maybe you or someone else has created something related to what you are going to make. Copy and paste stuff and dump it into your Google doc or other doc to get started. 
 
-![Spongebob is looking up sources](https://media.giphy.com/media/3ohuPoM1dUtKtYicdq/giphy.gif)
+![](https://media.giphy.com/media/3ohuPoM1dUtKtYicdq/giphy.gif)  
+`Spongebob is looking up sources`  
 
 If you know someone who may know more about a particular topic, as them to refer you to sources or related code repos. 
 
@@ -139,7 +142,8 @@ Find articles that are related? Dump the links to those in your outline where th
 
 You have some raw materials to mold with after dumping resources and/or mock code into your files. Now try to mold it into something more polished. 
 
-![Spongebob is cleaning up the dump of stuff](https://media.giphy.com/media/26mE60vUui9nr7tUA/giphy.gif)
+![](https://media.giphy.com/media/26mE60vUui9nr7tUA/giphy.gif)  
+`Spongebob is cleaning up the dump of stuff`
 
 Work on content or code that you are most passionate and knowledgeable about first. Do you enjoy making visuals? Do that first! Are there topics or code you have a lot of familiarity with that it would be easy for you to start with? Start with that!  
 
@@ -152,7 +156,8 @@ ChatGPT, Claude, Barde and other Large Language Models can be handy to ask for d
 If you feel you are slowing down at some point. Put it away and come back to it tomorrow! Breaks and rest are productive too!
 Brains need breaks. Also you literally will be a new person later and will forget some about what you are working on now. This can help you see things with fresh eyes and notice things that you wrote yesterday that didn't make sense (I've done that with this blog post. Some things I wrote before didn't make any sense today!)
 
-![Spongebob is relaxing](https://media.giphy.com/media/3ohuPkXWLhNKNkuISc/giphy.gif)
+![](https://media.giphy.com/media/3ohuPkXWLhNKNkuISc/giphy.gif)   
+`Spongebob is relaxing`
 
 ## 8. Feedback feedback and more feedback. 
 
@@ -164,7 +169,8 @@ But here's the key: You have to be ready to receive and adapt to that feedback. 
 
 As you are receiving feedback remember that the feedback isn't about you its about your product. I know this product may feel like your baby but its a good idea to keep your identity and worth completely separate from this thing you are working on. This is something that takes practice. 
 
-![Perhaps spongebob is taking some feedback a bit personally](https://media.giphy.com/media/3oxOCwwg0LvrKe5LoY/giphy.gif)
+![](https://media.giphy.com/media/3oxOCwwg0LvrKe5LoY/giphy.gif)   
+`Perhaps Spongebob is taking some feedback a bit personally` 
 
 Some feedback you may disagree with, but as much as possible, you should strive to accommodate your teammate's suggestions in accordance with their knowledge on the topic or product. Sometimes individuals on a team may see something others don't! The feedback process is a great opportunity for everyone to learn.  
 

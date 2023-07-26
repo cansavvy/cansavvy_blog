@@ -1,7 +1,7 @@
 project:
   type: website
   output-dir: docs
-  
+
 website:
   title: "cansavvy::Candy_Bytes()"
   navbar:
@@ -10,6 +10,8 @@ website:
         href: https://www.cansavvy.com/
       - icon: github
         href: https://github.com/cansavvy
+      - text: Subscribe!
+        href: https://forms.gle/muRJQALEacH8mJaS7
 format:
   html:
     theme: morph

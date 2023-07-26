@@ -95,6 +95,14 @@ And if you'd like to join my kids' village as a fun Aunt or Uncle, there's alway
 
 <iframe src="https://giphy.com/embed/XpgOZHuDfIkoM" width="460" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/XpgOZHuDfIkoM"></a></p>
 
+<script src="https://utteranc.es/client.js"
+        repo="cansavvy/cansavvy_blog"
+        issue-term="title"
+        label="Commenter on blog post"
+        theme="boxy-light"
+        crossorigin="anonymous"
+        async>
+</script>
 
 ```{r}
 sessionInfo()

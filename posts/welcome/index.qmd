@@ -8,3 +8,17 @@ categories: [news]
 This is my blog where I post all my cansavvy thoughts. There is no theme. It's just whatever I feel like writing about. 
 
 Thanks. 
+
+
+<script src="https://utteranc.es/client.js"
+        repo="cansavvy/cansavvy_blog"
+        issue-term="title"
+        label="Commenter on blog post"
+        theme="boxy-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+```{r}
+sessionInfo()
+```

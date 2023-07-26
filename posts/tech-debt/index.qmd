@@ -70,6 +70,15 @@ If you are in an environment that can't give you these things, look into leaving
 
 I think at the end of the day, I'm realizing nearly every common work problem seems to root itself in systemic and organizational issues where people and their humanity are depriortized. If we can continually work to support people and their work I think issues of bad types of tech debt, irreproducible research, and other common work issues in data science would improve.  
 
+<script src="https://utteranc.es/client.js"
+        repo="cansavvy/cansavvy_blog"
+        issue-term="title"
+        label="Commenter on blog post"
+        theme="boxy-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
 ```{r}
 sessionInfo()
 ```

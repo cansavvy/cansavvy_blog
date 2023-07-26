@@ -48,6 +48,15 @@ My huge disclaimer here is basically I'm a person with my own biases and set of 
 
 I'd love to hear other people's thoughts on this. What do you think about your various groups' "meeting pressure" management? What do you find works well for your team? Or what doesn't? 
 
+<script src="https://utteranc.es/client.js"
+        repo="cansavvy/cansavvy_blog"
+        issue-term="title"
+        label="Commenter on blog post"
+        theme="boxy-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
 ```{r}
 sessionInfo()
 ```

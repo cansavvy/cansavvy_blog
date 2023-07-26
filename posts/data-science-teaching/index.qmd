@@ -37,6 +37,15 @@ Here's the TL;DR
   
 Data science teachers are continually learning how to better be there for there students, so we need to keep iteratively updating these tips! Please discuss these with us! What have you learned? 
 
+<script src="https://utteranc.es/client.js"
+        repo="cansavvy/cansavvy_blog"
+        issue-term="title"
+        label="Commenter on blog post"
+        theme="boxy-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
 ```{r}
 sessionInfo()
 ```

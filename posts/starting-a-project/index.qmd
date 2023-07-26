@@ -183,8 +183,14 @@ As you and your team are incorporate feedback, you will want to decide when or h
 [In this chapter I discuss more details about how to conduct formal-ish user feedback](https://jhudatascience.org/Documentation_and_Usability/obtaining-user-feedback.html).
 
 
-\*This blog post is still under construction -- but this blog post emphasizes that mistakes are okay and iteration is good, so I'm putting it out there early! 
-
+<script src="https://utteranc.es/client.js"
+        repo="cansavvy/cansavvy_blog"
+        issue-term="title"
+        label="Commenter on blog post"
+        theme="boxy-light"
+        crossorigin="anonymous"
+        async>
+</script>
 
 ```{r}
 sessionInfo()

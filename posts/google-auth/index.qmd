@@ -439,6 +439,14 @@ On a lot of the Google API reference pages they have a `Try it out` thingy. This
 ottrpal::include_slide("https://docs.google.com/presentation/d/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ/edit#slide=id.g2371c5435f5_0_0")
 ```
 
+<script src="https://utteranc.es/client.js"
+        repo="cansavvy/cansavvy_blog"
+        issue-term="title"
+        label="Commenter on blog post"
+        theme="boxy-light"
+        crossorigin="anonymous"
+        async>
+</script>
 
 ```{r}
 sessionInfo()

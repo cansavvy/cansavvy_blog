@@ -3,6 +3,7 @@ title: "TL;DR for Data Science Teaching"
 author: "Candace Savonen"
 date: "2023-05-31"
 categories: [teaching, data science]
+
 ---
 
 ```{r, include = FALSE}

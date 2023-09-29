@@ -33,7 +33,13 @@ But `Users` can really be anyone! It may start as the person developing the soft
 
 So in fact, many scientific researchers are doing *software development* everyday! But many don't have a computer science degree and many of them have never taken a programming class (That includes me -- I'm not sure how I got here!). Self-taught scientific programmers (like myself) may dismiss themselves as being software developers since they often think of programming as a means to an end -- a scientific question may be their main goal. But in the pursuit of that goal they are doing software development along the way!
 
+The self-taught nature of many software programmers may also lead them to feel like they don't know what they are doing when it comes to programming and thus must not actually be software developers. But just because you are new to something, doesn't mean you aren't actually performing the skillset and doing the thing!
+
+![](https://media.giphy.com/media/Dh5q0sShxgp13DwrvG/giphy.gif) 
+
 But perhaps we should start including "software developer" into our identity schemas. Perhaps if we thought of this as one of our many hats we might be able to better adapt what more "traditionally trained" software developers do as a part of their development process. ([The Pragmatic Programmer](https://pragprog.com/) is a pretty big giant for discussing these skill sets and a good read).
+
+![](https://media.giphy.com/media/pPr6b7vYj1en4ywCiT/giphy.gif)
 
 What best practices do folks who are full-time "traditional" software developers use to do their work? This is where multidiscplinary bridges built between fields will really come in handy. 
 
@@ -41,7 +47,8 @@ I learned the most about software development when I worked in a lab that was ve
 
 And this type of multidisciplinary collaboration is my favorite part about science! But warning, to fully utilize this kind of collaboration requires a lot of **soft skills** development...
 
-**Examples:** 
+**Examples:**
+
 - Clear communication that is tailored to your audience. 
 - Humility to recognize when something is outside your realm of knowledge. 
 - Honesty and confidence to admit you don't know and that is okay!
@@ -50,10 +57,18 @@ And this type of multidisciplinary collaboration is my favorite part about scien
 .... And **soft** skills are actually really **hardest** but are really the foundation of everything else going smoothly! 
 
 
-In conclusion:You're a <s>wizard</s> software developer, Harry
+In conclusion: You're a <s>wizard</s> software developer, Harry
 
 ![](resources/images/youreadev.jpg)
 
+<script src="https://utteranc.es/client.js"
+        repo="cansavvy/cansavvy_blog"
+        issue-term="title"
+        label="Commenter on blog post"
+        theme="boxy-light"
+        crossorigin="anonymous"
+        async>
+</script>
 
 ```{r}
 sessionInfo()

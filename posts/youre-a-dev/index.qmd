@@ -1,7 +1,7 @@
 ---
 title: "3  signs you might accidentally be a software developer"
 author: "Candace Savonen"
-date: "2023-08-29"
+date: "2023-09-29"
 categories: [data science, informatics, research]
 
 ---

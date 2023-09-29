@@ -28,9 +28,9 @@ Let's break this down:
   - Pipelines
   - Algorithms and computational methods 
 
-Scientific software for cancer research includes all of the above items pretty frequently but scientists often don't think of themselves as software developers. I think this is in part because they don't picture that they have **users*. 
+Scientific software for cancer research includes all of the above items pretty frequently but scientists often don't think of themselves as software developers. I think this is in part because they don't picture that they have **users**. 
 
-But `Users` can really be anyone! It may start as the person developing the software but may expand to collaborators, random internet strangers, and others in the broader scientifiy community. The scientific community is full of users!
+But `Users` can really be anyone! It may start as the person developing the software but may expand to collaborators, random internet strangers, and others in the broader scientific community. The scientific community is full of users!
 
 So in fact, many scientific researchers are doing *software development* everyday! But many don't have a computer science degree and many of them have never taken a programming class (That includes me -- I'm not sure how I got here!). Self-taught scientific programmers (like myself) may dismiss themselves as being software developers since they often think of programming as a means to an end -- a scientific question may be their main goal. But in the pursuit of that goal they are doing software development along the way!
 

@@ -15,7 +15,8 @@ ottrpal::set_knitr_image_path()
 2. You are currently writing code to build something in the present.
 3. You will continue to write code to build things in the future. 
 
-Software developers jobs are often defined something like this: 
+<br> 
+Software developers' jobs are often defined something like this: 
 
 ** Software developers use programming to build **software** that meets the needs of **users**.**
 
@@ -61,6 +62,9 @@ In conclusion: You're a <s>wizard</s> software developer, Harry
 
 ![](resources/images/youreadev.jpg)
 
+*Acknowledgements to Sean Kross for inspiring this blog post in a conversation I had with him.*
+
+<br> 
 <script src="https://utteranc.es/client.js"
         repo="cansavvy/cansavvy_blog"
         issue-term="title"

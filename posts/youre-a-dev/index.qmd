@@ -77,3 +77,13 @@ In conclusion: You're a <s>wizard</s> software developer, Harry
 ```{r}
 sessionInfo()
 ```
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WH33677NQV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WH33677NQV');
+</script>

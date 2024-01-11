@@ -82,3 +82,13 @@ I think at the end of the day, I'm realizing nearly every common work problem se
 ```{r}
 sessionInfo()
 ```
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WH33677NQV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WH33677NQV');
+</script>

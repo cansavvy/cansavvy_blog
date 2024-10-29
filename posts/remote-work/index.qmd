@@ -1,0 +1,62 @@
+---
+title: "Remote work - it *can* be great"
+author: "Candace Savonen"
+date: "2023-09-29"
+categories: [data science, informatics, research]
+
+---
+
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+```
+
+
+I’ve worked in a number of different capacities and cities at this point. But have consistently worked remotely now for 4 years. Before that I had various scenarios of all in person or hybrid situation. That being said I love working remotely. It makes me more effective both personally and professionally. But I can recognize it’s not for everyone and does require some intentionality and structure at times. To be fair I think in person work could benefit from these things too.
+
+## Professional
+
+- Not all jobs lend themselves to being remote. In some teaching projects for example, I’ve needed to be in person because the audience responded better (I’m specifically referring to folks I taught who were not used to the professional environment). 
+- Many jobs are highly conducive to remote work especially if they require a lot do focused time like programming or writing. Because of this I find I am MUCH more productive as a remote worker now than I ever was as an in person worker. (No unscheduled interruptions or long commutes to suck your time). I used to commute into Philly from Delaware and 3 hours of my day was taken by my commute. This wasn’t only inefficient professionally but also was taxing to my mental health.
+- I do think folks earlier in their careers can miss out on proper mentorship and peer networks if they or their institutions are not intentional about making these opportunities happen. Structure is sometimes needed to promote connection. 
+
+## Personal
+
+- Not all personalities are as well suited for remote work. I particularly think folks who have a tendency to be neurodivergent in certain ways may vastly benefit or not from remote or hybrid work. This also goes for folks of certain disabilities. We want everyone's brain in on the work we are doing so its not only beneficial for people who need remote work but also for the people we are able to hire who we couldn't have because of remote work. Remote work really opens up possibilities for both people who are hiring or looking to be hired.
+- Remote work allows families or couples to have more opportunities. There doesn't have to be a "two body problem" if one person in a couple for example has a remote job. This is true for myself. My husband has a job that can’t be remote so I would not have been able to work for the hutch if remote work had not been a possibility.
+- I have two kids who are under 4 -- so I had both kids after I started working remotely. Remote work made it doable for me to be a working mom. It made things like breastfeeding (pumping milk for my while my kids were at daycare) possible. If I had to be in person working and being a working mom it would have been significantly harder (maybe impossible) and for some parents out there remote work makes it possible to make all the ends meet.
+
+## (Some) keys to making it work 
+
+- **Prioritizing asynchronous communication** like Slack or Google Doc comments and only doing synchronous communication when you have to. Virtual meetings are disruptive and many folks underestimate how much work can be done through messages.
+- ** Be the guardian of your own notifications** and proper notification settings (and keeping boundaries) is key to making remote work effective but also so that it doesn’t take over your life. I've had to learn this one slowly. I can't trust myself to not look at a notification I see so I have all notifications turned off when its dinner time with my family for example. Or if its when I go to bed. 
+- **Intentional communication** is the key to remote work and this does take practice and some tuning when you join a new team. Sometimes with new people I don't understand their communication as well -- either synchronous or asynchronous and this can take time to get to know. If someone sends you a message that you are confused about ask them to explain -- either in message or 
+- **Coworking calls - Cell phones don't have minutes anymore** -- for some of my closest coworkers, if we have to hammer something out either verbally or under a tight deadline we've had 2-3 hour calls where we work synchronously. You are not charged by the minute for Teams, Zoom, etc. So just do what you have to do and don't feel weird about being silent on a coworking call. 
+
+I'm a person who both advises younger folk and also needs advisement and guidance from time to time so I have thoughts about either situation: 
+
+- **Make yourself overwhelmingly available for people you advise** -- and take their temperature of how its going. I hate regular meetings but sometimes they are necessary. Have a calendly link and pin it somewhere you both know where it is and encourage them to freely book time with you whenever they need to chat. 
+- **Don't feel bad about being a squeaky wheel for people who advise you** -- If you are remote you won't be able to stop by the water cooler and chat with your boss. So if you need something you have to be a bit noisy sometimes. This can feel not great if you have been socialized by society to not take up space but you have to do it. Your boss (if they are supportive) and you will be happy you have come to them when you need something as opposed to them needing to check in or you secretly stewing about something or otherwise being confused. 
+
+<br> 
+<script src="https://utteranc.es/client.js"
+        repo="cansavvy/cansavvy_blog"
+        issue-term="title"
+        label="Commenter on blog post"
+        theme="boxy-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+```{r}
+sessionInfo()
+```
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WH33677NQV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WH33677NQV');
+</script>

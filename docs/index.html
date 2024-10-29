@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,8 +62,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -93,6 +101,33 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -100,9 +135,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">cansavvy::Candy_Bytes()</span>
     </a>
@@ -114,22 +149,22 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://www.cansavvy.com/" rel="" target="">
- <span class="menu-text">cansavvy.com</span></a>
+    <a class="nav-link" href="https://www.cansavvy.com/"> 
+<span class="menu-text">cansavvy.com</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/cansavvy" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/cansavvy"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://forms.gle/muRJQALEacH8mJaS7" rel="" target="">
- <span class="menu-text">Subscribe!</span></a>
+    <a class="nav-link" href="https://forms.gle/muRJQALEacH8mJaS7"> 
+<span class="menu-text">Subscribe!</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -139,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(2)</span></div><div class="category" data-category="data science">data science <span class="quarto-category-count">(3)</span></div><div class="category" data-category="documentation">documentation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="family">family <span class="quarto-category-count">(1)</span></div><div class="category" data-category="how we work">how we work <span class="quarto-category-count">(2)</span></div><div class="category" data-category="informatics">informatics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="management">management <span class="quarto-category-count">(2)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(1)</span></div><div class="category" data-category="personal">personal <span class="quarto-category-count">(1)</span></div><div class="category" data-category="research">research <span class="quarto-category-count">(1)</span></div><div class="category" data-category="teaching">teaching <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(2)</span></div><div class="category" data-category="data science">data science <span class="quarto-category-count">(4)</span></div><div class="category" data-category="documentation">documentation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="family">family <span class="quarto-category-count">(1)</span></div><div class="category" data-category="how we work">how we work <span class="quarto-category-count">(2)</span></div><div class="category" data-category="informatics">informatics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="management">management <span class="quarto-category-count">(2)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(1)</span></div><div class="category" data-category="personal">personal <span class="quarto-category-count">(1)</span></div><div class="category" data-category="research">research <span class="quarto-category-count">(2)</span></div><div class="category" data-category="teaching">teaching <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
@@ -149,21 +184,22 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="data science,informatics,research" data-listing-date-sort="1695960000000" data-listing-file-modified-sort="1704991893085" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="0" data-categories="data science,informatics,research" data-listing-date-sort="1695960000000" data-listing-file-modified-sort="1704991893085" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="712">
 <div class="thumbnail">
-<p><a href="./posts/youre-a-dev/index.html"> <p class="card-img-top"><img src="https://media.giphy.com/media/Dh5q0sShxgp13DwrvG/giphy.gif"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/youre-a-dev/index.html" class="no-external"></a></p><a href="./posts/youre-a-dev/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/youre-a-dev/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/youre-a-dev/index.html">
 <h3 class="no-anchor listing-title">
-3 signs you might accidentally be a software developer
+<a href="./posts/youre-a-dev/index.html" class="no-external">3 signs you might accidentally be a software developer</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/youre-a-dev/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
 data science
@@ -175,14 +211,12 @@ informatics
 research
 </div>
 </div>
-<a href="./posts/youre-a-dev/index.html">
 <div class="listing-description">
-<br> Software developers’ jobs are often defined something like this:
+<a href="./posts/youre-a-dev/index.html" class="no-external"><br> Software developers’ jobs are often defined something like this:</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/youre-a-dev/index.html">
+<a href="./posts/youre-a-dev/index.html" class="no-external">
 <div class="listing-date">
 Sep 29, 2023
 </div>
@@ -192,19 +226,58 @@ Candace Savonen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="how we work,data science" data-listing-date-sort="1690257600000" data-listing-file-modified-sort="1704991877774" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11">
+<div class="quarto-post image-right" data-index="1" data-categories="data science,informatics,research" data-listing-date-sort="1695960000000" data-listing-file-modified-sort="1730221785376" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1019">
 <div class="thumbnail">
-<p><a href="./posts/starting-a-project/index.html"> <p class="card-img-top"><img src="posts/starting-a-project/resources/images/writers+block.gif"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/remote-work/index.html" class="no-external"></a></p><a href="./posts/remote-work/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/remote-work/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/starting-a-project/index.html">
 <h3 class="no-anchor listing-title">
-Help! I’m frozen on a project and can’t get started
+<a href="./posts/remote-work/index.html" class="no-external">Remote work - it <em>can</em> be great</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/remote-work/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
+data science
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('informatics'); return false;">
+informatics
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('research'); return false;">
+research
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/remote-work/index.html" class="no-external">I’ve worked in a number of different capacities and cities at this point. But have consistently worked remotely now for 4 years. Before that I had various scenarios of all…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/remote-work/index.html" class="no-external">
+<div class="listing-date">
+Sep 29, 2023
+</div>
+<div class="listing-author">
+Candace Savonen
 </div>
 </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="how we work,data science" data-listing-date-sort="1690257600000" data-listing-file-modified-sort="1704991877774" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2085">
+<div class="thumbnail">
+<p><a href="./posts/starting-a-project/index.html" class="no-external"></a></p><a href="./posts/starting-a-project/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/starting-a-project/resources/images/writers+block.gif"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/starting-a-project/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/starting-a-project/index.html" class="no-external">Help! I’m frozen on a project and can’t get started</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/starting-a-project/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('how we work'); return false;">
 how we work
@@ -213,14 +286,12 @@ how we work
 data science
 </div>
 </div>
-<a href="./posts/starting-a-project/index.html">
 <div class="listing-description">
-<em>Blank page frozenitis</em> is a thing. And apparently Spongebob gifs are relatable to this problem.
+<a href="./posts/starting-a-project/index.html" class="no-external"><em>Blank page frozenitis</em> is a thing. And apparently Spongebob gifs are relatable to this problem.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/starting-a-project/index.html">
+<a href="./posts/starting-a-project/index.html" class="no-external">
 <div class="listing-date">
 Jul 25, 2023
 </div>
@@ -230,19 +301,19 @@ Candace Savonen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="how we work,management,documentation" data-listing-date-sort="1689048000000" data-listing-file-modified-sort="1704991873189" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="3" data-categories="how we work,management,documentation" data-listing-date-sort="1689048000000" data-listing-file-modified-sort="1704991873189" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="719">
 <div class="thumbnail">
-<p><a href="./posts/meeting-pressure/index.html"> <p class="card-img-top"><img src="posts/meeting-pressure/resources/images/sleep-pressure.jpg"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/meeting-pressure/index.html" class="no-external"></a></p><a href="./posts/meeting-pressure/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/meeting-pressure/resources/images/sleep-pressure.jpg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/meeting-pressure/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/meeting-pressure/index.html">
 <h3 class="no-anchor listing-title">
-Meetings are like sleep but they are not refreshing
+<a href="./posts/meeting-pressure/index.html" class="no-external">Meetings are like sleep but they are not refreshing</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/meeting-pressure/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('how we work'); return false;">
 how we work
@@ -254,14 +325,12 @@ management
 documentation
 </div>
 </div>
-<a href="./posts/meeting-pressure/index.html">
 <div class="listing-description">
-Sleep…
+<a href="./posts/meeting-pressure/index.html" class="no-external">Sleep is great. As a mom of 2 kinds under the age of 2, I can tell you I really miss sleep sometimes. At this stage in my life, I have no trouble taking naps if given the…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/meeting-pressure/index.html">
+<a href="./posts/meeting-pressure/index.html" class="no-external">
 <div class="listing-date">
 Jul 11, 2023
 </div>
@@ -271,19 +340,19 @@ Candace Savonen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="code,management,documentation" data-listing-date-sort="1685678400000" data-listing-file-modified-sort="1704991881952" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="quarto-post image-right" data-index="4" data-categories="code,management,documentation" data-listing-date-sort="1685678400000" data-listing-file-modified-sort="1704991881952" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="920">
 <div class="thumbnail">
-<p><a href="./posts/tech-debt/index.html"> <p class="card-img-top"><img src="posts/tech-debt/resources/images/tech-debt-types.png" alt="Types of Tech Debt"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/tech-debt/index.html" class="no-external"></a></p><a href="./posts/tech-debt/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/tech-debt/resources/images/tech-debt-types.png" alt="Types of Tech Debt"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/tech-debt/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/tech-debt/index.html">
 <h3 class="no-anchor listing-title">
-Thoughts about Tech Debt
+<a href="./posts/tech-debt/index.html" class="no-external">Thoughts about Tech Debt</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/tech-debt/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -295,14 +364,12 @@ management
 documentation
 </div>
 </div>
-<a href="./posts/tech-debt/index.html">
 <div class="listing-description">
-Tech debt isn’t all bad.
+<a href="./posts/tech-debt/index.html" class="no-external">Tech debt isn’t all bad.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/tech-debt/index.html">
+<a href="./posts/tech-debt/index.html" class="no-external">
 <div class="listing-date">
 Jun 2, 2023
 </div>
@@ -312,19 +379,19 @@ Candace Savonen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="teaching,data science" data-listing-date-sort="1685505600000" data-listing-file-modified-sort="1704991864394" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="5" data-categories="teaching,data science" data-listing-date-sort="1685505600000" data-listing-file-modified-sort="1704991864394" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="322">
 <div class="thumbnail">
-<p><a href="./posts/data-science-teaching/index.html"> <p class="card-img-top"><img src="posts/data-science-teaching/resources/images/DataScienceTeachingFigs.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/data-science-teaching/index.html" class="no-external"></a></p><a href="./posts/data-science-teaching/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/data-science-teaching/resources/images/DataScienceTeachingFigs.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/data-science-teaching/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/data-science-teaching/index.html">
 <h3 class="no-anchor listing-title">
-TL;DR for Data Science Teaching
+<a href="./posts/data-science-teaching/index.html" class="no-external">TL;DR for Data Science Teaching</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/data-science-teaching/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('teaching'); return false;">
 teaching
@@ -333,14 +400,12 @@ teaching
 data science
 </div>
 </div>
-<a href="./posts/data-science-teaching/index.html">
 <div class="listing-description">
-Our group has just put out a preprint about data science teaching
+<a href="./posts/data-science-teaching/index.html" class="no-external">Our group has just put out a preprint about data science teaching</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/data-science-teaching/index.html">
+<a href="./posts/data-science-teaching/index.html" class="no-external">
 <div class="listing-date">
 May 31, 2023
 </div>
@@ -350,19 +415,19 @@ Candace Savonen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="family,personal" data-listing-date-sort="1682481600000" data-listing-file-modified-sort="1690393317745" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
+<div class="quarto-post image-right" data-index="6" data-categories="family,personal" data-listing-date-sort="1682481600000" data-listing-file-modified-sort="1690393317745" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1204">
 <div class="thumbnail">
-<p><a href="./posts/to-be-a-parent-or-not/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/to-be-a-parent-or-not/index.html" class="no-external"></a></p><a href="./posts/to-be-a-parent-or-not/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/to-be-a-parent-or-not/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/to-be-a-parent-or-not/index.html">
 <h3 class="no-anchor listing-title">
-On joining (or not joining) the parent cult
+<a href="./posts/to-be-a-parent-or-not/index.html" class="no-external">On joining (or not joining) the parent cult</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/to-be-a-parent-or-not/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('family'); return false;">
 family
@@ -371,14 +436,12 @@ family
 personal
 </div>
 </div>
-<a href="./posts/to-be-a-parent-or-not/index.html">
 <div class="listing-description">
-And now for something completely different. Most of my blog will probably be me writing about…
+<a href="./posts/to-be-a-parent-or-not/index.html" class="no-external">And now for something completely different. Most of my blog will probably be me writing about technical things. But I started this blog with literally no bounds on the scope…</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/to-be-a-parent-or-not/index.html">
+<a href="./posts/to-be-a-parent-or-not/index.html" class="no-external">
 <div class="listing-date">
 Apr 26, 2023
 </div>
@@ -388,19 +451,19 @@ Candace Savonen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="code,analysis" data-listing-date-sort="1681876800000" data-listing-file-modified-sort="1704991869587" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15">
+<div class="quarto-post image-right" data-index="7" data-categories="code,analysis" data-listing-date-sort="1681876800000" data-listing-file-modified-sort="1704991869587" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2984">
 <div class="thumbnail">
-<p><a href="./posts/google-auth/index.html"> <p class="card-img-top"><img src="posts/google-auth/resources/images/index_files/figure-html/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g2371c5437bc_0_0.png" alt="A google app authorization screen"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./posts/google-auth/index.html" class="no-external"></a></p><a href="./posts/google-auth/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/google-auth/resources/images/index_files/figure-html/18TXez7_1U2TKxe5G0XPOm84EpYWB6n19MbQeMcqJeaQ_g2371c5437bc_0_0.png" alt="A google app authorization screen"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/google-auth/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/google-auth/index.html">
 <h3 class="no-anchor listing-title">
-R package Google Authorization for Dummies
+<a href="./posts/google-auth/index.html" class="no-external">R package Google Authorization for Dummies</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/google-auth/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
@@ -409,14 +472,12 @@ code
 analysis
 </div>
 </div>
-<a href="./posts/google-auth/index.html">
 <div class="listing-description">
-For quite some time, I’ve always wanted to unlock the powers of using Google API in an R package but the authorization bit had always puzzled me!
+<a href="./posts/google-auth/index.html" class="no-external">For quite some time, I’ve always wanted to unlock the powers of using Google API in an R package but the authorization bit had always puzzled me!</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/google-auth/index.html">
+<a href="./posts/google-auth/index.html" class="no-external">
 <div class="listing-date">
 Apr 19, 2023
 </div>
@@ -426,32 +487,30 @@ Candace Savonen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="news" data-listing-date-sort="1681617600000" data-listing-file-modified-sort="1704991889058" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="8" data-categories="news" data-listing-date-sort="1681617600000" data-listing-file-modified-sort="1704991889058" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="99">
 <div class="thumbnail">
-<p><a href="./posts/welcome/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/welcome/index.html" class="no-external"></a></p><a href="./posts/welcome/index.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./posts/welcome/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/welcome/index.html">
 <h3 class="no-anchor listing-title">
-Welcome
+<a href="./posts/welcome/index.html" class="no-external">Welcome</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/welcome/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
 news
 </div>
 </div>
-<a href="./posts/welcome/index.html">
 <div class="listing-description">
-This is my blog where I post all my cansavvy thoughts. There is no theme. It’s just whatever I feel like writing about.
+<a href="./posts/welcome/index.html" class="no-external">This is my blog where I post all my cansavvy thoughts. There is no theme. It’s just whatever I feel like writing about.</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/welcome/index.html">
+<a href="./posts/welcome/index.html" class="no-external">
 <div class="listing-date">
 Apr 16, 2023
 </div>
@@ -545,10 +604,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -558,8 +634,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -571,7 +656,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -615,6 +823,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -640,6 +849,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -700,6 +935,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

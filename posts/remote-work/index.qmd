@@ -1,7 +1,7 @@
 ---
 title: "Remote work - it *can* be great"
 author: "Candace Savonen"
-date: "2023-09-29"
+date: "2023-10-28"
 categories: [data science, informatics, research]
 
 ---
@@ -28,7 +28,7 @@ I’ve worked in a number of different capacities and cities at this point. But 
 ## (Some) keys to making it work 
 
 - **Prioritizing asynchronous communication** like Slack or Google Doc comments and only doing synchronous communication when you have to. Virtual meetings are disruptive and many folks underestimate how much work can be done through messages.
-- ** Be the guardian of your own notifications** and proper notification settings (and keeping boundaries) is key to making remote work effective but also so that it doesn’t take over your life. I've had to learn this one slowly. I can't trust myself to not look at a notification I see so I have all notifications turned off when its dinner time with my family for example. Or if its when I go to bed. 
+- **Be the guardian of your own notifications** and proper notification settings (and keeping boundaries) is key to making remote work effective but also so that it doesn’t take over your life. I've had to learn this one slowly. I can't trust myself to not look at a notification I see so I have all notifications turned off when its dinner time with my family for example. Or if its when I go to bed. 
 - **Intentional communication** is the key to remote work and this does take practice and some tuning when you join a new team. Sometimes with new people I don't understand their communication as well -- either synchronous or asynchronous and this can take time to get to know. If someone sends you a message that you are confused about ask them to explain -- either in message or 
 - **Coworking calls - Cell phones don't have minutes anymore** -- for some of my closest coworkers, if we have to hammer something out either verbally or under a tight deadline we've had 2-3 hour calls where we work synchronously. You are not charged by the minute for Teams, Zoom, etc. So just do what you have to do and don't feel weird about being silent on a coworking call. 
 

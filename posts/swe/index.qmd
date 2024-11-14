@@ -1,0 +1,57 @@
+---
+title: "Impactful Scientific Software Engineering"
+author: "Candace Savonen"
+date: "2023-11-13"
+categories: [data science, informatics, research]
+
+---
+
+```{r, include = FALSE}
+ottrpal::set_knitr_image_path()
+```
+
+**UNDER DEVELOPMENT** 
+
+Creating software for specific biological fields in the academic research setting requires a unique set of skills. In this blog I've summarized these skill sets into three areas. 
+
+![](resources/images/swe.png)
+
+
+- **Scientific Validity** - Software data handling and methods need to be congruent and effective for the scientific questions at hand. This requires biomedical knowledge to enforce. Scientific validity is ensured through the use of effective multidisciplinary collaboration, robust scientific code review through pull requests, and robust record keeping of quality controls and sanity checks data analyses.
+  - Multidisciplinary communication is necessary 
+  - Clear communication is necessary 
+  - Scientific code review is necessary
+
+- **Community Usability** -  Scientific software needs to be usable by the community in order to impact research. Usability is fundamentally increased through making work open source and transparent with a permissive license for reuse. Principles of usability and effective documentation are required so that the intended audience of researchers are able to find the information they need easily to apply the software to their own work.
+  - Power of three - you mostly need just three testers to see what the problems are
+  - Training as a usability tool - Most academic software isn't documented enough for others to understand or use. 
+
+- **Sustainability** - Scientific software cannot be impactful if it is not lasting. In an academic research setting, software sustainability can be particularly tricky if not properly funded or if the engineer doesn’t require the proper skill set. Software is made more sustainable through unit testing and continuous integration and continuous deployment methods which ensure that new changes to the code do not break current features. Containerization is a critical tool for software sustainability as irreconcilable software dependencies can easily derail a biological data analysis before it has even begun. Lastly a technique for sustainability is to make sure others on the team are properly trained in these techniques. 
+  - CI/CD - Using this will help you test your software when you are a small or large team. 
+  - Containerization - using this will help provide snapshots of computing environments you need
+  - Commensalistic symbiotic software - borrowing bigger, more robust software to be your back end, even if it doesn't fully fit your needs. This can be helpful for maintenance burdens for small teams. 
+- Training as a software sustainability tool
+
+<br> 
+<script src="https://utteranc.es/client.js"
+        repo="cansavvy/cansavvy_blog"
+        issue-term="title"
+        label="Commenter on blog post"
+        theme="boxy-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+```{r}
+sessionInfo()
+```
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WH33677NQV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WH33677NQV');
+</script>
